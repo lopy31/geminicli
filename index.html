@@ -3,312 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="siteTitle">金沢バケーションフォト - Kanazawa Vacation Photo</title>
-    <meta name="description" content="金沢の魅力を知り尽くした地元フォトグラファーが、あなたの旅行の特別な瞬間を丁寧に切り取ります。ひがし茶屋街や兼六園など、最高のロケーションで心に残る一枚を。" data-lang-key="siteDescription">
-    <meta name="keywords" content="金沢, 写真撮影, フォトグラファー, 観光, 旅行, 兼六園, ひがし茶屋街, Kanazawa, photography, travel photo, vacation photo">
+    <title data-i18n="site_title"></title>
+    <meta name="description" data-i18n="meta_description">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- Font Awesome for icons -->
 </head>
 <body>
 
     <header class="header">
-        <div class="container">
-            <h1 class="logo" data-lang-key="logo">Kanazawa Vacation Photo</h1>
-            <nav class="language-switcher">
+        <div class="header-inner">
+            <a href="#" class="logo">Kanazawa Vacation Photo</a>
+            <nav class="nav">
                 <ul>
-                    <li><button class="lang-btn active" data-lang="ja">日本語</button></li>
-                    <li><button class="lang-btn" data-lang="en">English</button></li>
-                    <li><button class="lang-btn" data-lang="zh-Hant">繁體中文</button></li>
+                    <li><a href="#reviews" data-i18n="nav_reviews">お客様の声</a></li>
+                    <li><a href="#plans" data-i18n="nav_plans">料金プラン</a></li>
+                    <li><a href="#reason" data-i18n="nav_reason">選ばれる理由</a></li>
+                    <li><a href="#flow" data-i18n="nav_flow">ご利用の流れ</a></li>
+                    <li><a href="#faq" data-i18n="nav_faq">Q&A</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">ご予約</a></li>
                 </ul>
             </nav>
+            <div class="lang-switcher">
+                <a href="#" data-lang="ja" class="active">JA</a> | <a href="#" data-lang="en">EN</a> | <a href="#" data-lang="zh-TW">繁体</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
+        <section class="hero">
+            <div class="hero-slideshow">
+                <!-- Background images will be set via CSS/JS -->
+            </div>
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h2 class="catch-copy" data-lang-key="heroCatchCopy">美しい金沢で、忘れられない思い出を残しませんか</h2>
-                <p class="body-copy" data-lang-key="heroBodyCopy">金沢の魅力を知り尽くした地元フォトグラファーが、あなたの旅行の特別な瞬間を丁寧に切り取ります。歴史あるひがし茶屋街から美しい兼六園まで、フォトジェニックな金沢で、心に残る一枚を一緒に作りましょう。観光ガイドには載っていない隠れた名所や、季節ごとのベストスポットもご案内します。</p>
-                <a href="#contact" class="cta-button" data-lang-key="heroCTA">今すぐ予約する</a>
+                <h1 class="hero-catchphrase" data-i18n="hero_catchphrase">美しい金沢で、<br>忘れられない思い出を残しませんか</h1>
+                <p class="hero-bodycopy" data-i18n="hero_bodycopy">金沢の魅力を知り尽くした地元フォトグラファーが、あなたの旅行の特別な瞬間を丁寧に切り取ります。歴史あるひがし茶屋街から美しい兼六園まで、フォトジェニックな金沢で、心に残る一枚を一緒に作りましょう。観光ガイドには載っていない隠れた名所や、季節ごとのベストスポットもご案内します。</p>
+                <a href="#contact" class="cta-button" data-i18n="hero_cta">今すぐ撮影を予約する</a>
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="galleryTitle">Photo Gallery</h2>
-                <div class="gallery-grid">
-                    <div class="card"><img src="assets/images/0001_xlarge.jpg" alt="Kanazawa Photo 1"></div>
-                    <div class="card"><img src="assets/images/0007_xlarge.jpg" alt="Kanazawa Photo 2"></div>
-                    <div class="card"><img src="assets/images/0026_xlarge.jpg" alt="Kanazawa Photo 3"></div>
-                    <div class="card"><img src="assets/images/0035_xlarge.jpg" alt="Kanazawa Photo 4"></div>
+        <section class="promo-video-section">
+            <video class="promo-video" src="assets/movie/mv.mp4" autoplay muted loop playsinline></video>
+        </section>
+
+        <section id="reviews" class="content-section">
+            <h2 class="section-title" data-i18n="section_title_reviews">お客様の声</h2>
+            <div class="card-grid reviews-grid">
+                <!-- Review Cards -->
+                <div class="card review-card">
+                    <div class="review-header">
+                        <span class="review-author" data-i18n="review_sarah_author">サラ・M様 (アメリカ)</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text" data-i18n="review_sarah_text">"touchさんは本当に素晴らしいフォトグラファーでした！金沢の美しいスポットに案内していただき、新婚旅行の思い出を完璧に残してくれました。想像以上の仕上がりに感激です。心からおすすめします！"</p>
+                </div>
+                <div class="card review-card">
+                    <div class="review-header">
+                        <span class="review-author" data-i18n="review_james_author">ジェームズ・L様 (オーストラリア)</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text" data-i18n="review_james_text">"プロフェッショナルでフレンドリー、そして金沢を知り尽くしているtouchさん。兼六園での桜の写真は息を呑むほど美しかったです。お値段以上の価値がありました！"</p>
+                </div>
+                <div class="card review-card">
+                    <div class="review-header">
+                        <span class="review-author" data-i18n="review_emma_author">エマ・K様 (イギリス)</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text" data-i18n="review_emma_text">"touchさんのおかげで撮影中とてもリラックスできました。私たちだけでは見つけられなかった隠れた名所に案内してくれて、写真は驚くほど美しく仕上がりました。一生の宝物です。"</p>
+                </div>
+                <div class="card review-card">
+                    <div class="review-header">
+                        <span class="review-author" data-i18n="review_michael_author">マイケル・R様 (カナダ)</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <p class="review-text" data-i18n="review_michael_text">"素晴らしいサービスでした！touchさんは時間通りで、プロフェッショナル、そして非常に才能豊かです。金沢での家族写真は今、我が家に誇らしげに飾られています。ありがとうございました！"</p>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews Section -->
-        <section id="reviews" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="reviewsTitle">お客様の声</h2>
-                <div class="card-grid">
-                    <div class="card review-card">
-                        <p class="stars">★★★★★</p>
-                        <p class="review-text" data-lang-key="review1Text">「touchさんは本当に素晴らしいフォトグラファーでした！金沢の美しいスポットに案内していただき、新婚旅行の思い出を完璧に残してくれました。想像以上の仕上がりに感激です。心からおすすめします！」</p>
-                        <p class="reviewer" data-lang-key="review1Name">サラ・M様（アメリカ）</p>
+        <section id="plans" class="content-section bg-light">
+            <h2 class="section-title" data-i18n="section_title_plans">料金プラン</h2>
+            <div class="card-grid plans-grid">
+                <!-- Plan Cards -->
+                <div class="card plan-card">
+                    <h3 class="plan-name" data-i18n="plan_light_name">ライトプラン</h3>
+                    <p class="plan-price"><span data-i18n="plan_light_price">35,000円</span> <span class="plan-duration" data-i18n="plan_light_duration">(1時間)</span></p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_light_feature1">30枚の編集済み写真</li>
+                        <li data-i18n="plan_light_feature2">1箇所の撮影（兼六園 or ひがし茶屋街）</li>
+                        <li data-i18n="plan_light_feature3">7日以内のオンライン納品</li>
+                        <li data-i18n="plan_light_feature4">カップル・少人数グループにおすすめ</li>
+                    </ul>
+                </div>
+                <div class="card plan-card popular">
+                    <span class="popular-badge" data-i18n="plan_standard_popular">一番人気</span>
+                    <h3 class="plan-name" data-i18n="plan_standard_name">スタンダードプラン</h3>
+                    <p class="plan-price"><span data-i18n="plan_standard_price">55,000円</span> <span class="plan-duration" data-i18n="plan_standard_duration">(2時間)</span></p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_standard_feature1">60枚の編集済み写真</li>
+                        <li data-i18n="plan_standard_feature2">2〜3箇所の撮影（隠れスポット含む）</li>
+                        <li data-i18n="plan_standard_feature3">5日以内のオンライン納品</li>
+                        <li data-i18n="plan_standard_feature4">撮影アドバイス付き</li>
+                        <li data-i18n="plan_standard_feature5">ご家族・友人グループに最適</li>
+                    </ul>
+                </div>
+                <div class="card plan-card">
+                    <h3 class="plan-name" data-i18n="plan_premium_name">プレミアムプラン</h3>
+                    <p class="plan-price"><span data-i18n="plan_premium_price">85,000円</span> <span class="plan-duration" data-i18n="plan_premium_duration">(3時間)</span></p>
+                    <ul class="plan-features">
+                        <li data-i18n="plan_premium_feature1">100枚の編集済み写真</li>
+                        <li data-i18n="plan_premium_feature2">4〜5箇所の撮影（地元ならではのスポット）</li>
+                        <li data-i18n="plan_premium_feature3">3日以内のオンライン納品</li>
+                        <li data-i18n="plan_premium_feature4">撮影アドバイス付き</li>
+                        <li data-i18n="plan_premium_feature5">記念アルバム付き</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="plan-common-note" data-i18n="plan_common_note">全プラン共通：プロ仕様の編集、高解像度ダウンロード、商用利用可</p>
+        </section>
+        
+        <section id="options" class="content-section">
+            <h2 class="section-title" data-i18n="section_title_options">オプションサービス</h2>
+            <div class="card-grid options-grid">
+                 <div class="card option-card">
+                    <h3 class="option-title" data-i18n="option_delivery_title">納期短縮</h3>
+                    <ul class="option-list">
+                        <li data-i18n="option_delivery_24h">24時間以内納品: <span>+15,000円</span></li>
+                        <li data-i18n="option_delivery_48h">48時間以内納品: <span>+8,000円</span></li>
+                    </ul>
+                </div>
+                <div class="card option-card">
+                    <h3 class="option-title" data-i18n="option_raw_title">RAWデータ</h3>
+                    <ul class="option-list">
+                        <li data-i18n="option_raw_all">全ての未編集RAWファイル: <span>+20,000円</span></li>
+                    </ul>
+                </div>
+                <div class="card option-card">
+                    <h3 class="option-title" data-i18n="option_retouch_title">プロレタッチ</h3>
+                    <ul class="option-list">
+                        <li data-i18n="option_retouch_skin">高度な美肌加工: <span>+5,000円</span></li>
+                        <li data-i18n="option_retouch_teeth">歯のホワイトニング: <span>+3,000円</span></li>
+                        <li data-i18n="option_retouch_background">背景の補正・加工: <span>+8,000円</span></li>
+                    </ul>
+                </div>
+                <div class="card option-card">
+                    <h3 class="option-title" data-i18n="option_additional_title">追加サービス</h3>
+                    <ul class="option-list">
+                        <li data-i18n="option_additional_extend_time">撮影時間1時間延長: <span>+18,000円</span></li>
+                        <li data-i18n="option_additional_second_shooter">セカンドカメラマン: <span>+25,000円</span></li>
+                        <li data-i18n="option_additional_kimono">着物レンタル手配: <span>+12,000円</span></li>
+                        <li data-i18n="option_additional_drone">ドローン撮影（天候次第）: <span>+15,000円</span></li>
+                    </ul>
+                </div>
+                <div class="card option-card">
+                    <h3 class="option-title" data-i18n="option_products_title">写真商品</h3>
+                    <ul class="option-list">
+                        <li data-i18n="option_products_album">プレミアム写真集 (20P): <span>+18,000円</span></li>
+                        <li data-i18n="option_products_canvas">キャンバスプリント: <span>8,000円〜</span></li>
+                        <li data-i18n="option_products_slideshow">BGM付きデジタルスライドショー: <span>+10,000円</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="reason" class="content-section bg-light">
+            <h2 class="section-title" data-i18n="section_title_reason">金沢バケーションフォトが選ばれる理由</h2>
+            <div class="card-grid reason-grid">
+                <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_love_title">地元金沢への深い愛着</h3>
+                    <p data-i18n="reason_love_text">金沢生まれ・育ちのフォトグラファーが、ガイドブックに載らない隠れた名所や季節毎の最高のロケーションをご案内します。</p>
+                </div>
+                <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_skill_title">確かな技術と実績</h3>
+                    <p data-i18n="reason_skill_text">ゲッティイメージズジャパンフォトコンテスト入賞など、数々の賞を受賞した実力派フォトグラファーが撮影します。</p>
+                </div>
+                <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_season_title">季節の美しさを知り尽くす</h3>
+                    <p data-i18n="reason_season_text">春の桜、夏の緑、秋の紅葉、冬の雪景色。金沢の四季の魅力を最大限に活かした撮影をご提案します。</p>
+                </div>
+                <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_communication_title">丁寧なコミュニケーション</h3>
+                    <p data-i18n="reason_communication_text">お客様のご希望を丁寧にお聞きし、撮影スタイルや構図について分かりやすくご説明。リラックスして撮影に臨めます。</p>
+                </div>
+                 <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_experience_title">300組以上の撮影実績</h3>
+                    <p data-i18n="reason_experience_text">海外からのお客様を中心に、300組以上の撮影実績。5つ星の評価を数多くいただいております。</p>
+                </div>
+                <div class="card reason-card">
+                    <h3 class="reason-title" data-i18n="reason_custom_title">オーダーメイドの撮影</h3>
+                    <p data-i18n="reason_custom_text">お客様のご要望に応じて、撮影プランを完全にカスタマイズ。あなただけの特別な写真をお作りします。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="flow" class="content-section">
+            <h2 class="section-title" data-i18n="section_title_flow">ご利用の流れ</h2>
+            <div class="flow-steps">
+                <div class="card flow-step">
+                    <div class="flow-step-number" data-i18n="flow_step1_num">STEP 1</div>
+                    <h3 class="flow-step-title" data-i18n="flow_step1_title">ご予約</h3>
+                    <p data-i18n="flow_step1_text">お好みのプランと希望日時をオンラインまたはLINEでご連絡ください。24時間以内に撮影確定のご連絡をいたします。</p>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step-number" data-i18n="flow_step2_num">STEP 2</div>
+                    <h3 class="flow-step-title" data-i18n="flow_step2_title">事前打ち合わせ</h3>
+                    <p data-i18n="flow_step2_text">撮影のご希望やイメージをお聞かせください。最適なロケーション、時間、服装などを一緒に計画します。</p>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step-number" data-i18n="flow_step3_num">STEP 3</div>
+                    <h3 class="flow-step-title" data-i18n="flow_step3_title">撮影当日</h3>
+                    <p data-i18n="flow_step3_text">指定の場所でお待ちしております。リラックスした雰囲気で、複数のスポットを巡りながら楽しく撮影しましょう。</p>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step-number" data-i18n="flow_step4_num">STEP 4</div>
+                    <h3 class="flow-step-title" data-i18n="flow_step4_title">写真のお渡し</h3>
+                    <p data-i18n="flow_step4_text">プロ仕様の編集後、オンラインギャラリーで納品します。高解像度で、写真は永久に保存されます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="content-section bg-light">
+            <h2 class="section-title" data-i18n="section_title_faq">よくあるご質問</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq_rain_q">雨が降った場合はどうなりますか？</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_rain_a">天候は事前に確認し、無料で日程変更を承ります。小雨の場合は、雨ならではの情緒ある写真も撮影可能ですので、ご相談させていただきます。</p>
                     </div>
-                    <div class="card review-card">
-                        <p class="stars">★★★★★</p>
-                        <p class="review-text" data-lang-key="review2Text">「プロフェッショナルでフレンドリー、そして金沢を知り尽くしているtouchさん。兼六園での桜の写真は息を呑むほど美しかったです。お値段以上の価値がありました！」</p>
-                        <p class="reviewer" data-lang-key="review2Name">ジェームズ・L様（オーストラリア）</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq_group_q">大人数のグループでも撮影できますか？</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_group_a">はい、15名様まで対応可能です。8名様を超える場合は追加料金が発生する場合がございますので、お問い合わせください。</p>
                     </div>
-                    <div class="card review-card">
-                        <p class="stars">★★★★★</p>
-                        <p class="review-text" data-lang-key="review3Text">「touchさんのおかげで撮影中とてもリラックスできました。私たちだけでは見つけられなかった隠れた名所に案内してくれて、写真は驚くほど美しく仕上がりました。一生の宝物です。」</p>
-                        <p class="reviewer" data-lang-key="review3Name">エマ・K様（イギリス）</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq_kimono_q">着物のレンタルはできますか？</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_kimono_a">はい、信頼できる地元の着物レンタル店と提携しており、手配を承ります（別途料金）。事前のご予約が必要です。</p>
                     </div>
-                    <div class="card review-card">
-                        <p class="stars">★★★★★</p>
-                        <p class="review-text" data-lang-key="review4Text">「素晴らしいサービスでした！touchさんは時間通りで、プロフェッショナル、そして非常に才能豊かです。金沢での家族写真は今、我が家に誇らしげに飾られています。ありがとうございました！」</p>
-                        <p class="reviewer" data-lang-key="review4Name">マイケル・R様（カナダ）</p>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq_location_q">希望の場所での撮影は可能ですか？</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_location_a">もちろんです！金沢市内は料金内で対応可能です。市外への出張撮影も承っておりますので、お気軽にご相談ください。交通費が別途発生する場合がございます。</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question" data-i18n="faq_commercial_q">写真の商用利用は可能ですか？</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_commercial_a">はい、全プランで商用利用権が含まれています。SNSやウェブサイト、マーケティング資料などにご自由にお使いいただけます。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section -->
-        <section id="pricing" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="pricingTitle">撮影プラン</h2>
-                <div class="card-grid-3">
-                    <div class="card price-card">
-                        <h3 data-lang-key="plan1Title">ライトプラン</h3>
-                        <p class="price">35,000円<span data-lang-key="planDuration1">（1時間）</span></p>
-                        <ul>
-                            <li data-lang-key="plan1Feat1">30枚の編集済み写真</li>
-                            <li data-lang-key="plan1Feat2">1箇所の撮影（兼六園 or ひがし茶屋街）</li>
-                            <li data-lang-key="plan1Feat3">7日以内のオンライン納品</li>
-                            <li data-lang-key="plan1Feat4">カップル・少人数グループにおすすめ</li>
-                        </ul>
-                    </div>
-                    <div class="card price-card popular">
-                        <span class="popular-badge" data-lang-key="popularBadge">一番人気</span>
-                        <h3 data-lang-key="plan2Title">スタンダードプラン</h3>
-                        <p class="price">55,000円<span data-lang-key="planDuration2">（2時間）</span></p>
-                        <ul>
-                            <li data-lang-key="plan2Feat1">60枚の編集済み写真</li>
-                            <li data-lang-key="plan2Feat2">2〜3箇所の撮影（隠れスポット含む）</li>
-                            <li data-lang-key="plan2Feat3">5日以内のオンライン納品</li>
-                            <li data-lang-key="plan2Feat4">撮影アドバイス付き</li>
-                            <li data-lang-key="plan2Feat5">ご家族・友人グループに最適</li>
-                        </ul>
-                    </div>
-                    <div class="card price-card">
-                        <h3 data-lang-key="plan3Title">プレミアムプラン</h3>
-                        <p class="price">85,000円<span data-lang-key="planDuration3">（3時間）</span></p>
-                        <ul>
-                            <li data-lang-key="plan3Feat1">100枚の編集済み写真</li>
-                            <li data-lang-key="plan3Feat2">4〜5箇所の撮影（地元ならではのスポット）</li>
-                            <li data-lang-key="plan3Feat3">3日以内のオンライン納品</li>
-                            <li data-lang-key="plan3Feat4">撮影アドバイス付き</li>
-                            <li data-lang-key="plan3Feat5">記念アルバム付き</li>
-                            <li data-lang-key="plan3Feat6">特別な記念日におすすめ</li>
-                        </ul>
-                    </div>
+        <section id="photographer" class="content-section">
+            <h2 class="section-title" data-i18n="section_title_photographer">フォトグラファー紹介</h2>
+            <div class="photographer-profile card">
+                <div class="profile-image">
+                    <img src="assets/images/profile.png" alt="フォトグラファー 山下辰行 (Touch)">
                 </div>
-                <p class="text-center" data-lang-key="pricingNote">*全プラン共通：プロ仕様の編集、高解像度ダウンロード、商用利用可</p>
+                <div class="profile-details">
+                    <h3 class="profile-name" data-i18n="photographer_name">山下辰行 (Touch)</h3>
+                    <p class="profile-bio" data-i18n="photographer_bio">1983年金沢市生まれ。フリーフォトグラファー／グラフィックデザイナー。生まれ育った金沢の魅力を写真を通じて多くの人に伝えたいという想いで活動しています。日常の何気ない瞬間を丁寧に切り取り、その場の空気感や感情も一緒に写真に込めることを大切にしています。</p>
+                    <div class="profile-specialties">
+                        <h4 data-i18n="photographer_specialties_title">得意分野</h4>
+                        <p data-i18n="photographer_specialties_list">家族写真, 金沢スナップ, 旅行写真</p>
+                    </div>
+                    <div class="profile-awards">
+                        <h4 data-i18n="photographer_awards_title">受賞歴</h4>
+                        <p data-i18n="photographer_awards_list">ゲッティイメージズジャパン フォトコンテスト 2位, いしかわフォトコンテスト入賞・石川県議会議長賞 など</p>
+                    </div>
+                     <p class="profile-message" data-i18n="photographer_message">"金沢での特別な時間を、私の写真で永遠に残しませんか？何年後に見返しても『あの時楽しかったな』と思えるような作品をお作りします。"</p>
+                </div>
             </div>
         </section>
         
-        <!-- Options Section -->
-        <section id="options" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="optionsTitle">オプションサービス</h2>
-                <div class="card-grid-2">
-                    <div class="card">
-                        <h3 data-lang-key="option1Title">納期短縮</h3>
-                        <ul>
-                            <li data-lang-key="option1Item1">24時間以内納品：+15,000円</li>
-                            <li data-lang-key="option1Item2">48時間以内納品：+8,000円</li>
-                        </ul>
+        <section id="access" class="content-section bg-light">
+            <h2 class="section-title" data-i18n="section_title_access">アクセス</h2>
+             <div class="access-info card">
+                <p data-i18n="access_text">撮影は金沢市を中心に行います。ご希望の場所へ出張撮影も可能ですので、お気軽にご相談ください（市外は別途交通費をいただく場合がございます）。<br>打ち合わせや写真展は、下記スタジオで行うこともあります。</p>
+                <div class="access-details">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.206333924954!2d136.653366315278!3d36.57270397999585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5b2243355a99a753%3A0x78452f0b33639e1d!2z44Oe44OD44K344K344OI44Gu5aC0!5e0!3m2!1sja!2sjp!4v1672531200000!5m2!1sja!2sjp" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="card">
-                        <h3 data-lang-key="option2Title">RAWデータパッケージ</h3>
-                        <ul>
-                            <li data-lang-key="option2Item1">全ての未編集RAWファイル：+20,000円</li>
-                            <li data-lang-key="option2Item2">プロ仕様の編集をご希望の方に</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 data-lang-key="option3Title">プロレタッチ</h3>
-                        <ul>
-                            <li data-lang-key="option3Item1">高度な美肌加工：+5,000円</li>
-                            <li data-lang-key="option3Item2">歯のホワイトニング：+3,000円</li>
-                            <li data-lang-key="option3Item3">背景の補正・加工：+8,000円</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 data-lang-key="option4Title">その他追加サービス</h3>
-                        <ul>
-                            <li data-lang-key="option4Item1">撮影時間1時間延長：+18,000円</li>
-                            <li data-lang-key="option4Item2">セカンドカメラマン：+25,000円</li>
-                            <li data-lang-key="option4Item3">着物レンタル手配：+12,000円</li>
-                            <li data-lang-key="option4Item4">ドローン撮影（天候次第）：+15,000円</li>
-                        </ul>
+                    <div class="info">
+                        <h3 data-i18n="access_studio_name">フォトスタジオ MASSHI (マッシ)</h3>
+                        <p data-i18n="access_website">ウェブサイト: <a href="http://masshi.space" target="_blank">masshi.space</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Reasons Section -->
-        <section id="reasons" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="reasonsTitle">選ばれる理由</h2>
-                <div class="card-grid-3">
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason1Title">地元金沢への深い愛着</h3>
-                        <p data-lang-key="reason1Text">金沢生まれ・金沢育ちのフォトグラファーが、観光ガイドには載っていない隠れた名所や、季節ごとの最高のロケーションをご案内します。</p>
-                    </div>
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason2Title">確かな技術と実績</h3>
-                        <p data-lang-key="reason2Text">ゲッティイメージズジャパン フォトコンテスト入賞、いしかわフォトコンテスト受賞など、数々の賞を受賞した実力派フォトグラファーが撮影します。</p>
-                    </div>
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason3Title">季節の美しさを知り尽くす</h3>
-                        <p data-lang-key="reason3Text">春の桜、夏の緑、秋の紅葉、冬の雪景色。金沢の四季の魅力を最大限に活かした撮影タイミングとスポットをご提案します。</p>
-                    </div>
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason4Title">丁寧なコミュニケーション</h3>
-                        <p data-lang-key="reason4Text">お客様一人ひとりのご希望を丁寧にお聞きし、撮影スタイルや構図について分かりやすくご説明します。</p>
-                    </div>
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason5Title">300組以上の撮影実績</h3>
-                        <p data-lang-key="reason5Text">海外からのお客様を中心に、300組以上の撮影実績があります。5つ星の評価を数多くいただいております。</p>
-                    </div>
-                    <div class="card reason-card">
-                        <h3 data-lang-key="reason6Title">オーダーメイドの撮影</h3>
-                        <p data-lang-key="reason6Text">お客様のご要望に応じて、撮影プランを完全にカスタマイズ。あなただけの特別な写真をお作りします。</p>
-                    </div>
+        <section id="contact" class="content-section">
+            <h2 class="section-title" data-i18n="section_title_contact">ご予約・お問い合わせ</h2>
+            <div class="card-grid contact-grid">
+                <div class="card contact-card">
+                    <h3 class="contact-title" data-i18n="contact_online_title">かんたんネット予約</h3>
+                    <p data-i18n="contact_online_text">24時間いつでもお申し込みいただけます。確認後、メールでご連絡いたします。</p>
+                    <a href="http://www.kanazawa-vacation-photo.com/book" target="_blank" class="cta-button" data-i18n="contact_online_cta">オンラインで予約する</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Flow Section -->
-        <section id="flow" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="flowTitle">ご利用の流れ</h2>
-                <div class="flow-steps">
-                    <div class="card flow-step">
-                        <div class="flow-step-number">STEP 1</div>
-                        <h3 data-lang-key="flow1Title">ご予約</h3>
-                        <p data-lang-key="flow1Text">お好みのプランと希望日時をお選びください。オンライン予約またはLINEでお気軽にご連絡。24時間以内に撮影確定のご連絡をいたします。</p>
-                    </div>
-                    <div class="card flow-step">
-                        <div class="flow-step-number">STEP 2</div>
-                        <h3 data-lang-key="flow2Title">事前打ち合わせ</h3>
-                        <p data-lang-key="flow2Text">撮影のご希望やイメージをお聞かせください。おすすめのロケーションをご提案し、最適なスケジュールを調整します。</p>
-                    </div>
-                    <div class="card flow-step">
-                        <div class="flow-step-number">STEP 3</div>
-                        <h3 data-lang-key="flow3Title">撮影当日</h3>
-                        <p data-lang-key="flow3Text">指定の場所でお待ちしております。リラックスした雰囲気で、複数の素敵なスポットを回りながら楽しく撮影します。</p>
-                    </div>
-                    <div class="card flow-step">
-                        <div class="flow-step-number">STEP 4</div>
-                        <h3 data-lang-key="flow4Title">写真のお渡し</h3>
-                        <p data-lang-key="flow4Text">プロ仕様の編集後、オンラインギャラリーで高解像度の写真をお渡しします。ギャラリーは永久保存いたします。</p>
-                    </div>
+                <div class="card contact-card">
+                    <h3 class="contact-title" data-i18n="contact_line_title">LINEで気軽にご相談</h3>
+                    <p data-i18n="contact_line_text">撮影イメージの共有や、予約調整もスムーズです。まずはお気軽にご連絡ください。</p>
+                    <a href="https://line.me/ti/p/%40kanazawa-photo" target="_blank" class="cta-button" data-i18n="contact_line_cta">LINEで相談する</a>
+                    <p class="line-id"><span data-i18n="contact_line_id">LINE ID:</span> @kanazawa-photo</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="faqTitle">よくあるご質問</h2>
-                <div class="faq-grid">
-                    <div class="card faq-item">
-                        <h3 data-lang-key="faq1q">Q：雨が降った場合はどうなりますか？</h3>
-                        <p data-lang-key="faq1a">A：無料で日程変更を承ります。小雨の場合は、雨ならではの情緒ある写真も撮影可能ですので、ご相談させていただきます。</p>
-                    </div>
-                    <div class="card faq-item">
-                        <h3 data-lang-key="faq2q">Q：大人数のグループでも撮影できますか？</h3>
-                        <p data-lang-key="faq2a">A：はい、15名様まで対応可能です。8名様を超える場合は追加料金が発生する場合がございます。</p>
-                    </div>
-                    <div class="card faq-item">
-                        <h3 data-lang-key="faq3q">Q：着物のレンタルはできますか？</h3>
-                        <p data-lang-key="faq3a">A：信頼できる地元の着物レンタル店と提携しており、手配を承ります（別途料金）。</p>
-                    </div>
-                    <div class="card faq-item">
-                        <h3 data-lang-key="faq4q">Q：写真の商用利用は可能ですか？</h3>
-                        <p data-lang-key="faq4a">A：はい、全プランで商用利用権が含まれています。SNSやウェブサイトなどにご自由にお使いいただけます。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Photographer Section -->
-        <section id="photographer" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="photographerTitle">フォトグラファー紹介</h2>
-                <div class="photographer-profile card">
-                    <img src="assets/images/profile.png" alt="Photographer Touch" class="profile-pic">
-                    <div class="profile-details">
-                        <h3 data-lang-key="photographerName">フォトグラファー：山下辰行（Touch）</h3>
-                        <p data-lang-key="photographerProfile">1983年金沢市生まれ。金沢を拠点に活動するフリーフォトグラファー／グラフィックデザイナー。愛称は「Touch（タッチ）」。生まれ育った金沢の魅力を写真を通じて多くの人に伝えたいという想いで活動しています。</p>
-                        <p data-lang-key="photographerMessage"><strong>Touch からのメッセージ:</strong> 「金沢での時間は、きっと特別なものになるはず。その特別な瞬間を、私の写真で永遠に残しませんか？技術的な完璧さだけでなく、その時の気持ちや空気感も一緒に写真に込めて、何年後に見返しても『あの時楽しかったな』と思えるような作品をお作りします。」</p>
-                        <p><strong>Websites:</strong> touchdesign.jp / masshi.space</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Map Section -->
-        <section id="map" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="mapTitle">アクセス・撮影エリア</h2>
-                <div class="map-container card">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204486.3770338923!2d136.4979023328125!3d36.5779999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff7818ce5a32489%3A0x38997e8d3336b355!2z6YeR5rKi6aeF!5e0!3m2!1sja!2sjp!4v1688536988262!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                 <p class="text-center" data-lang-key="mapDescription">主な撮影エリアは金沢市内中心部（兼六園、ひがし茶屋街など）ですが、ご要望に応じて市外での撮影も可能です。</p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="content-section fade-in-element">
-            <div class="container">
-                <h2 class="section-title" data-lang-key="contactTitle">ご予約・お問い合わせ</h2>
-                <div class="card-grid-2">
-                    <div class="card contact-card">
-                        <h3 data-lang-key="contactOnlineTitle">かんたんネット予約</h3>
-                        <p data-lang-key="contactOnlineText">24時間いつでもお申し込みOK。確認後、メールでご連絡いたします。事前相談もお気軽にどうぞ。</p>
-                        <a href="#" class="cta-button" data-lang-key="contactOnlineBtn">オンライン予約</a>
-                    </div>
-                    <div class="card contact-card">
-                        <h3 data-lang-key="contactLineTitle">LINEで気軽にご相談</h3>
-                        <p data-lang-key="contactLineText">ID: @kanazawa-photo. 写真での参考イメージ共有も簡単。予約調整もスムーズ。</p>
-                        <a href="#" class="cta-button" data-lang-key="contactLineBtn">LINEで相談する</a>
-                    </div>
-                </div>
-                <p class="final-message" data-lang-key="finalMessage">金沢での完璧な瞬間を逃さないでください。今すぐご予約いただき、一生の思い出を作りましょう！</p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Kanazawa Vacation Photo by Touch. All Rights Reserved.</p>
-            <p><a href="privacy.html" data-lang-key="privacyPolicyLink">プライバシーポリシー</a></p>
+        <div class="footer-inner">
+            <div class="footer-info">
+                <p data-i18n="footer_copyright">&copy; 2024 Kanazawa Vacation Photo by Touch Design. All Rights Reserved.</p>
+                <p><a href="/privacy-policy" data-i18n="footer_privacy">プライバシーポリシー</a></p>
+            </div>
+            <div class="footer-social">
+                <!-- Add social media links here -->
+            </div>
         </div>
     </footer>
 
-    <div id="cookie-banner" class="cookie-banner">
-        <p data-lang-key="cookieBannerText">当サイトでは、お客様の利便性向上のためクッキーを使用しています。詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
-        <button id="cookie-accept-btn" data-lang-key="cookieAcceptBtn">同意する</button>
+    <div class="cookie-banner" id="cookie-banner">
+        <p><span data-i18n="cookie_text_part1">当サイトでは、お客様の利便性向上やサイト分析のためにクッキーを使用しています。</span><a href="/privacy-policy">プライバシーポリシー</a><span data-i18n="cookie_text_part2">をご確認の上、同意するボタンを押してください。</span></p>
+        <button class="cookie-consent-button" id="cookie-consent-button" data-i18n="cookie_consent_button">同意する</button>
     </div>
 
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
