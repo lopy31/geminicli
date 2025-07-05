@@ -1,15 +1,15 @@
 /* Basic Reset & Typography */
 :root {
-    --color-primary: #6a8e7a; /* くすんだ緑 */
-    --color-secondary: #a3b18a; /* くすんだ黄緑 */
-    --color-accent: #dad7cd; /* 明るいベージュ */
-    --color-text-dark: #344e41; /* 濃い緑 */
-    --color-text-light: #fefae0; /* 薄いクリーム */
-    --color-background-light: #fefae0; /* 薄いクリーム */
-    --color-background-dark: #e0e0e0; /* 薄いグレー */
-    --color-card-bg: #ffffff; /* カード背景 */
-    --color-border: #d4d4d4; /* ボーダー */
-    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-primary: #5F7C7B; /* Muted Teal */
+    --color-secondary: #A8C6C4; /* Lighter Teal/Grey */
+    --color-accent: #E0E7E9; /* Very Light Blue-Grey */
+    --color-text-dark: #333333; /* Dark Grey */
+    --color-text-light: #FFFFFF; /* White */
+    --color-background-light: #F8F8F8; /* Off-White */
+    --color-background-dark: #EEEEEE; /* Light Grey */
+    --color-card-bg: #FFFFFF; /* White */
+    --color-border: #DDDDDD; /* Light Grey */
+    --color-shadow: rgba(0, 0, 0, 0.08); /* Softer Shadow */
 
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Noto Sans JP', sans-serif;
@@ -92,7 +92,7 @@ ul {
 /* Layout & Sections */
 .content-section {
     padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
-    max-width: 1200px;
+
     margin: 0 auto;
 }
 
@@ -117,7 +117,7 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+
     margin: 0 auto;
 }
 
@@ -242,7 +242,7 @@ ul {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+
     padding: var(--spacing-unit);
 }
 
@@ -495,7 +495,7 @@ ul {
 
 /* FAQ */
 .faq-container {
-    max-width: 800px;
+
     margin: 0 auto;
 }
 
@@ -565,7 +565,7 @@ ul {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 800px;
+
     margin: 0 auto;
     padding: calc(var(--spacing-unit) * 3);
 }
@@ -623,41 +623,50 @@ ul {
     border-radius: 0 8px 8px 0;
 }
 
-/* Access */
-.access-info {
-    max-width: 900px;
+/* Service Area */
+.service-area-info {
+
     margin: 0 auto;
     padding: calc(var(--spacing-unit) * 2);
-}
-
-.access-info p {
-    margin-bottom: calc(var(--spacing-unit) * 1.5);
     text-align: center;
 }
 
-.access-details {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--spacing-unit) * 2);
-}
-
-.access-details .map {
-    flex: 1;
-    min-height: 300px;
-}
-
-.access-details .map iframe {
-    border-radius: 8px;
-}
-
-.access-details .info {
-    flex: 1;
-    text-align: center;
-}
-
-.access-details .info h3 {
-    color: var(--color-primary);
+.service-area-info p {
     margin-bottom: var(--spacing-unit);
+}
+
+/* Photo Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+    gap: 10px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto; /* Changed from 100% to auto */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Dynamic grid sizing for a more "dynamic" look */
+.gallery-grid img:nth-child(4n+1) { grid-column: span 2; grid-row: span 2; }
+.gallery-grid img:nth-child(5n+2) { grid-row: span 2; }
+.gallery-grid img:nth-child(7n+3) { grid-column: span 2; }
+.gallery-grid img:nth-child(8n+4) { grid-row: span 3; }
+
+@media (max-width: 768px) {
+    .gallery-grid img:nth-child(4n+1), .gallery-grid img:nth-child(5n+2), .gallery-grid img:nth-child(7n+3), .gallery-grid img:nth-child(8n+4) {
+        grid-row: auto;
+        grid-column: auto;
+    }
 }
 
 /* Contact */
@@ -692,7 +701,7 @@ ul {
 }
 
 .footer-inner {
-    max-width: 1200px;
+
     margin: 0 auto;
     display: flex;
     flex-direction: column;

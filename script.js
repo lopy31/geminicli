@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang][key]) {
                 // For elements that might contain HTML (like hero_catchphrase)
-                if (key.includes('hero_catchphrase') || key.includes('access_text')) {
+                if (key.includes('hero_catchphrase') || key.includes('privacy_policy_intro_text') || key.includes('service_area_text')) {
                     element.innerHTML = translations[lang][key];
                 } else {
                     element.textContent = translations[lang][key];
