@@ -196,8 +196,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Set initial language on page load based on URL, then localStorage, then default to 'en'
-    const urlParams = new URLSearchParams(window.location.search);
-    const initialLang = urlParams.get('lang') || localStorage.getItem('preferredLanguage') || 'en';
-    setLanguage(initialLang);
+    
 });
