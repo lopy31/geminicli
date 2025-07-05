@@ -18,67 +18,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hero Slideshow
+    // Hero Slideshow (only on index.html)
     const heroSlideshow = document.querySelector('.hero-slideshow');
-    const images = [
-        'assets/images/0001_xlarge.jpg',
-        'assets/images/0002_xlarge.jpg',
-        'assets/images/0007_xlarge.jpg',
-        'assets/images/0026_xlarge.jpg',
-        'assets/images/0032_xlarge.jpg',
-        'assets/images/0035_xlarge.jpg',
-        'assets/images/0038_xlarge.jpg',
-        'assets/images/0042_xlarge.jpg',
-        'assets/images/0053_xlarge.jpg',
-        'assets/images/0059_xlarge.jpg',
-        'assets/images/0063_xlarge.jpg',
-        'assets/images/0071_xlarge.jpg',
-        'assets/images/0072_xlarge.jpg',
-        'assets/images/0082_xlarge.jpg',
-        'assets/images/0085_xlarge.jpg',
-        'assets/images/0088_xlarge.jpg',
-        'assets/images/0089_xlarge.jpg',
-        'assets/images/0090_xlarge.jpg',
-        'assets/images/0094_xlarge.jpg',
-        'assets/images/0097_xlarge.jpg',
-        'assets/images/0102_xlarge.jpg',
-        'assets/images/0104_xlarge.jpg',
-        'assets/images/0107_xlarge.jpg',
-        'assets/images/0123_xlarge.jpg',
-        'assets/images/0139_xlarge.jpg',
-        'assets/images/0147_xlarge.jpg',
-        'assets/images/0161_xlarge.jpg',
-        'assets/images/0182_xlarge.jpg',
-        'assets/images/0185_xlarge.jpg',
-        'assets/images/0200_xlarge.jpg',
-        'assets/images/0201_xlarge.jpg',
-        'assets/images/0205_xlarge.jpg',
-        'assets/images/0227_xlarge.jpg',
-        'assets/images/0232_xlarge.jpg',
-        'assets/images/0246_xlarge.jpg',
-        'assets/images/0247_xlarge.jpg',
-        'assets/images/0251_xlarge.jpg',
-        'assets/images/0259_xlarge.jpg',
-        'assets/images/0270_xlarge.jpg',
-        'assets/images/0273_xlarge.jpg',
-        'assets/images/0281_xlarge.jpg',
-        'assets/images/0282_xlarge.jpg'
-    ];
-    let currentImageIndex = 0;
-
-    function changeHeroImage() {
-        if (!heroSlideshow) return;
-
-        heroSlideshow.style.backgroundImage = `url(${images[currentImageIndex]})`;
-        heroSlideshow.style.opacity = 1;
-
-        setTimeout(() => {
-            heroSlideshow.style.opacity = 0;
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-        }, 4000); // Image visible for 4 seconds
-    }
-
     if (heroSlideshow) {
+        const images = [
+            'assets/images/0001_xlarge.jpg',
+            'assets/images/0002_xlarge.jpg',
+            'assets/images/0007_xlarge.jpg',
+            'assets/images/0026_xlarge.jpg',
+            'assets/images/0032_xlarge.jpg',
+            'assets/images/0035_xlarge.jpg',
+            'assets/images/0038_xlarge.jpg',
+            'assets/images/0042_xlarge.jpg',
+            'assets/images/0053_xlarge.jpg',
+            'assets/images/0059_xlarge.jpg',
+            'assets/images/0063_xlarge.jpg',
+            'assets/images/0071_xlarge.jpg',
+            'assets/images/0072_xlarge.jpg',
+            'assets/images/0082_xlarge.jpg',
+            'assets/images/0085_xlarge.jpg',
+            'assets/images/0088_xlarge.jpg',
+            'assets/images/0089_xlarge.jpg',
+            'assets/images/0090_xlarge.jpg',
+            'assets/images/0094_xlarge.jpg',
+            'assets/images/0097_xlarge.jpg',
+            'assets/images/0102_xlarge.jpg',
+            'assets/images/0104_xlarge.jpg',
+            'assets/images/0107_xlarge.jpg',
+            'assets/images/0123_xlarge.jpg',
+            'assets/images/0139_xlarge.jpg',
+            'assets/images/0147_xlarge.jpg',
+            'assets/images/0161_xlarge.jpg',
+            'assets/images/0182_xlarge.jpg',
+            'assets/images/0185_xlarge.jpg',
+            'assets/images/0200_xlarge.jpg',
+            'assets/images/0201_xlarge.jpg',
+            'assets/images/0205_xlarge.jpg',
+            'assets/images/0227_xlarge.jpg',
+            'assets/images/0232_xlarge.jpg',
+            'assets/images/0246_xlarge.jpg',
+            'assets/images/0247_xlarge.jpg',
+            'assets/images/0251_xlarge.jpg',
+            'assets/images/0259_xlarge.jpg',
+            'assets/images/0270_xlarge.jpg',
+            'assets/images/0273_xlarge.jpg',
+            'assets/images/0281_xlarge.jpg',
+            'assets/images/0282_xlarge.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function changeHeroImage() {
+            heroSlideshow.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            heroSlideshow.style.opacity = 1;
+
+            setTimeout(() => {
+                heroSlideshow.style.opacity = 0;
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+            }, 4000); // Image visible for 4 seconds
+        }
+
         changeHeroImage();
         setInterval(changeHeroImage, 5000); // Change every 5 seconds (4s visible + 1s transition)
     }
@@ -139,13 +137,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const langSwitchers = document.querySelectorAll('.lang-switcher a');
 
     function setLanguage(lang) {
+        // Update html lang attribute
+        document.documentElement.lang = lang;
+
         // Update title and meta description
-        document.title = translations[lang].site_title;
-        document.querySelector('meta[name="description"]').setAttribute('content', translations[lang].meta_description);
+        if (translations[lang] && translations[lang].site_title) {
+            document.title = translations[lang].site_title;
+        }
+        if (translations[lang] && translations[lang].meta_description) {
+            document.querySelector('meta[name="description"]').setAttribute('content', translations[lang].meta_description);
+        }
 
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 // For elements that might contain HTML (like hero_catchphrase)
                 if (key.includes('hero_catchphrase') || key.includes('privacy_policy_intro_text') || key.includes('service_area_text')) {
                     element.innerHTML = translations[lang][key];
@@ -173,10 +178,26 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const lang = event.target.getAttribute('data-lang');
             setLanguage(lang);
+
+            // For navigation to privacy-policy.html, ensure lang param is added
+            if (event.target.closest('header')) { // Check if click is from header nav
+                const currentPath = window.location.pathname;
+                if (currentPath.includes('privacy-policy.html')) {
+                    // Already on privacy policy page, just update language
+                    window.history.replaceState({}, '', `privacy-policy.html?lang=${lang}`);
+                } else {
+                    // On index page, update privacy policy link in footer
+                    const privacyLink = document.getElementById('footer-privacy-link');
+                    if (privacyLink) {
+                        privacyLink.href = `privacy-policy.html?lang=${lang}`;
+                    }
+                }
+            }
         });
     });
 
-    // Set initial language on page load
-    const initialLang = localStorage.getItem('preferredLanguage') || 'ja';
+    // Set initial language on page load based on URL, then localStorage, then default to 'en'
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialLang = urlParams.get('lang') || localStorage.getItem('preferredLanguage') || 'en';
     setLanguage(initialLang);
 });
