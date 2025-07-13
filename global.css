@@ -6,8 +6,8 @@
   --text-light: #ffffff;
   --bg-light: #f9f5f1;
   --bg-white: #ffffff;
-  --font-main: 'Nunito Sans', sans-serif;
-  --font-display: 'Sofia Sans', sans-serif;
+  --font-main: "Nunito Sans", sans-serif;
+  --font-display: "Sofia Sans", sans-serif;
 }
 
 body {
@@ -36,7 +36,13 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 
@@ -48,6 +54,7 @@ h1, h2, h3, h4, h5, h6, p {
   color: var(--brand-secondary);
   text-align: center;
   letter-spacing: 0.8px;
+  width: 100%;
 }
 
 .btn {
