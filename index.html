@@ -787,15 +787,17 @@
         }
 
         .qa-item {
-            background-color: var(--bg-white);
-            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
         }
 
         .qa-question {
+            background-color: var(--bg-white);
             display: flex;
             align-items: flex-start;
             gap: 8px;
             padding: 20px;
+            border-radius: 10px;
             cursor: pointer;
             list-style: none;
             /* For Safari */
@@ -833,11 +835,35 @@
             transform: rotate(180deg);
         }
 
+        /* .qa-answer のスムーズな開閉アニメーション */
         .qa-answer {
-            padding: 0 20px 20px 54px;
-            /* 20px left + 26px Q-marker + 8px gap */
-            font-size: 14px;
-            line-height: 21px;
+            background: var(--brand-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            border-radius: 10px;
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            padding: 0 20px;
+            transition:
+                max-height 0.4s cubic-bezier(.4, 0, .2, 1),
+                opacity 0.4s cubic-bezier(.4, 0, .2, 1),
+                padding 0.4s cubic-bezier(.4, 0, .2, 1),
+                margin 0.4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* details[open] 内の .qa-answer を表示 */
+        .qa-item[open] .qa-answer {
+            max-height: 500px;
+            opacity: 1;
+            padding: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            transition-delay: 0.1s;
         }
 
         /* CSS for section section:cta */
@@ -1139,7 +1165,7 @@
                 hidden gems.</p>
         </div>
         <div class="cookie-banner" id="cookieBanner">
-            <p class="cookie-text">We use cookies. See our&nbsp;<a href="#">Privacy Policy</a>&nbsp;for more
+            <p class="cookie-text">We use cookies. See our&nbsp;<a href="policy.html">Privacy Policy</a>&nbsp;for more
                 information.</p>
             <a href="#" class="btn btn-secondary cookie-btn" id="cookieBtn">Got it</a>
         </div>
@@ -1406,7 +1432,12 @@
                     <img src="images/I411_1177_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for what happens if it rains.</p>
+                    <span class="q-marker">A.</span>
+                    <p>In the case of obvious bad weather such as a typhoon, the event will have to be postponed or
+                        canceled, but basically, shooting is possible even in light rain and snow. If it is only light
+                        rain, you can shoot with an umbrella, and even if it is heavy rain, many shrines have large
+                        roofs, so you can use those to shoot in an outdoor atmosphere. In that case, we would appreciate
+                        it if you could bring a clear plastic umbrella.</p>
                 </div>
             </details>
             <details class="qa-item">
@@ -1416,7 +1447,9 @@
                     <img src="images/I411_1912_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for accommodating large groups.</p>
+                    <span class="q-marker">A.</span>
+                    <p>Please note that the number of cuts per person may be less depending on the number of people in
+                        your group. The maximum number of people is 8.</p>
                 </div>
             </details>
             <details class="qa-item">
@@ -1426,7 +1459,9 @@
                     <img src="images/I411_1936_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for kimono rental.</p>
+                    <span class="q-marker">A.</span>
+                    <p>We can introduce you to our affiliated kimono rental shops! We can also make reservations on your
+                        behalf!</p>
                 </div>
             </details>
             <details class="qa-item">
@@ -1436,7 +1471,9 @@
                     <img src="images/I411_1960_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for choosing the location.</p>
+                    <span class="q-marker">A.</span>
+                    <p>Yes, if you let us know your preferred location in advance. Entrance fees and paid parking will
+                        be charged separately.</p>
                 </div>
             </details>
             <details class="qa-item">
@@ -1446,7 +1483,9 @@
                     <img src="images/I411_1984_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for commercial use of photos.</p>
+                    <span class="q-marker">A.</span>
+                    <p>For commercial use, depending on the content, a separate application is required and an
+                        additional 50% of the shooting fee will be charged.</p>
                 </div>
             </details>
             <details class="qa-item">
@@ -1456,7 +1495,11 @@
                     <img src="images/I411_2008_411_1158.svg" alt="toggle icon" class="q-icon">
                 </summary>
                 <div class="qa-answer">
-                    <p>Answer for cancellation policy.</p>
+                    <span class="q-marker">A.</span>
+                    <p>Cancellation policies vary depending on the type of cancellation. In the case of cancellation due
+                        to a child's illness or family circumstances, cancellation is free up to 72 hours in advance,
+                        50% of the shooting fee if between 24 and 72 hours, and 100% of the shooting fee if within 24
+                        hours.</p>
                 </div>
             </details>
         </div>
@@ -1498,7 +1541,7 @@
             <a href="#" class="footer-link">Check Availability (Japanese only)</a>
         </div>
         <div class="footer-bottom">
-            <a href="#">Privacy</a>
+            <a href="policy.html">Privacy</a>
             <span>©Photoko by touchdesign.</span>
         </div>
     </footer>
