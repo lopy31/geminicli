@@ -1,371 +1,1329 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="site_title"></title>
-    <meta name="description" data-i18n="meta_description">
-    <link rel="stylesheet" href="style.css">
+    <title>Generated Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanazawa Vacation Photo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- Font Awesome for icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,700;0,6..12,900;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,700;1,6..12,900&family=Sofia+Sans:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <style id="sections-styles">
+        /* CSS for section section:header */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--bg-light);
+        }
+
+        .site-header .logo h1 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 1;
+            color: var(--text-dark);
+        }
+
+        /* site-header: 画面上部に固定表示 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 1100;
+            box-sizing: border-box;
+        }
+
+        /* bodyのpadding-topを追加してヘッダー分のスペースを確保 */
+        body {
+            padding-top: 80px;
+            /* ヘッダーの高さに合わせて調整 */
+        }
+
+        /* cookie-banner: 画面下部に固定表示 */
+        .cookie-banner {
+            position: fixed !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100vw;
+            margin: 0;
+            z-index: 1200;
+            border-radius: 0;
+            max-width: 100vw;
+            box-sizing: border-box;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .main-nav .book-now-btn {
+            padding: 9px 17px;
+        }
+
+        /* ハンバーガーアイコン */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            margin: 4px 0;
+            background: var(--text-dark, #222);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* 開閉アニメーション */
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* メニューリスト */
+        .menu-list {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 220px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 80px 32px 32px 32px;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
+            z-index: 1000;
+            font-family: var(--font-main);
+            font-size: 18px;
+        }
+
+        .menu-list li {
+            list-style: none;
+        }
+
+        .menu-list a {
+            color: var(--text-dark, #222);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .menu-list a:hover {
+            color: var(--brand-primary, #007aff);
+        }
+
+        /* メニュー表示時 */
+        .menu-list.open {
+            transform: translateX(0);
+        }
+
+        /* CSS for section section:hero */
+        .hero-section {
+            position: relative;
+            height: 712px;
+            background-image: url('images/326b35009755c68a01c963f7753061a636c390d0.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            margin: 0 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .hero-content {
+            margin-top: 80px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 40px;
+            line-height: 48px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--text-light);
+            max-width: 194px;
+        }
+
+        .cookie-banner {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 141.42%);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-text {
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: var(--text-light);
+        }
+
+        .cookie-text a {
+            text-decoration: underline;
+        }
+
+        .cookie-btn {
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* CSS for section section:location */
+        .location-section {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .location-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .location-card {
+            position: relative;
+            margin: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .location-card img {
+            width: 100%;
+            height: 177px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .location-card figcaption {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: var(--text-light);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .location-info h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: var(--text-medium);
+        }
+
+        .location-info p {
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-medium);
+            text-align: left;
+        }
+
+        /* CSS for section section:price */
+        .price-section {
+            padding: 40px;
+            background-color: var(--bg-white);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .price-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .price-intro h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--text-medium);
+        }
+
+        .price-intro p {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-medium);
+            text-align: left;
+        }
+
+        .price-plans {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .price-card {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .price-card.standard-plan {
+            position: relative;
+        }
+
+        .top-pick-badge {
+            position: absolute;
+            top: -13px;
+            right: 20px;
+            width: 44px;
+            height: 71px;
+            text-align: center;
+        }
+
+        .top-pick-badge img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .top-pick-badge span {
+            position: relative;
+            z-index: 2;
+            color: var(--text-dark);
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 10px;
+            line-height: 1;
+            display: block;
+            margin-top: 61px;
+        }
+
+        .plan-name {
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: 0.96px;
+            color: var(--text-dark);
+        }
+
+        .plan-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-amount {
+            font-family: 'Futura PT', sans-serif;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 1;
+            letter-spacing: 3.8px;
+            color: var(--text-dark);
+        }
+
+        .price-tax {
+            font-family: var(--font-main);
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 1;
+            letter-spacing: 1.2px;
+            color: var(--text-dark);
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plan-features li {
+            background-color: var(--bg-white);
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            max-width: 255px;
+            text-align: center;
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: 0.56px;
+        }
+
+        /* CSS for section section:options */
+        .options-section {
+            padding: 40px;
+            background-color: var(--bg-white);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .option-card {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            text-align: center;
+        }
+
+        .option-icon {
+            width: 56px;
+            height: 56px;
+        }
+
+        .option-title {
+            font-family: var(--font-main);
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: 0.96px;
+            color: var(--text-dark);
+            margin-top: -8px;
+        }
+
+        .option-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: -8px;
+        }
+
+        .option-description {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-dark);
+            text-align: left;
+            max-width: 255px;
+        }
+
+        /* CSS for section section:photographer */
+        .photographer-section {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .photographer-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .profile-pic {
+            width: 182px;
+            height: 181px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: var(--text-medium);
+        }
+
+        .photographer-bio {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-dark);
+        }
+
+        .photographer-quote {
+            background-color: var(--brand-secondary);
+            color: var(--text-light);
+            padding: 17px 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .photographer-quote p {
+            font-size: 14px;
+            line-height: 21px;
+        }
+
+        .photographer-details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .detail-item h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: var(--text-medium);
+        }
+
+        .detail-item p {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-dark);
+        }
+
+        /* CSS for section section:gallery */
+        .gallery-section {
+            padding: 20px;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .gallery-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .gallery-row .gallery-item {
+            width: calc(50% - 5px);
+        }
+
+        /* CSS for section section:flow */
+        .flow-section {
+            background-color: var(--bg-white);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .flow-step {
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-number {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .step-number span {
+            font-family: 'Futura', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            color: #5c5c5c;
+        }
+
+        .step-number .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #5c5c5c;
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Futura', sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .step-content {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .step-content h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--text-medium);
+        }
+
+        .step-content p {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-dark);
+        }
+
+        .step-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .step-actions .btn {
+            width: 100%;
+            padding: 16px;
+        }
+
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-options h4 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--brand-primary);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .contact-link {
+            flex: 1;
+            background-color: var(--brand-primary);
+            color: var(--bg-light);
+            border-radius: 6px;
+            padding: 9px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-link span {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        .contact-link small {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
+        /* CSS for section section:qa */
+        .qa-section {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .qa-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .qa-item {
+            background-color: var(--bg-white);
+            border-radius: 10px;
+        }
+
+        .qa-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 20px;
+            cursor: pointer;
+            list-style: none;
+            /* For Safari */
+        }
+
+        .qa-question::-webkit-details-marker {
+            display: none;
+            /* For Chrome */
+        }
+
+        .q-marker {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--brand-secondary);
+            line-height: 20px;
+        }
+
+        .q-text {
+            flex-grow: 1;
+            font-family: var(--font-main);
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            color: var(--text-dark);
+        }
+
+        .q-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .qa-item[open] .q-icon {
+            transform: rotate(180deg);
+        }
+
+        .qa-answer {
+            padding: 0 20px 20px 54px;
+            /* 20px left + 26px Q-marker + 8px gap */
+            font-size: 14px;
+            line-height: 21px;
+        }
+
+        /* CSS for section section:cta */
+        .cta-section {
+            background-color: var(--brand-primary);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 1;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .cta-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cta-card {
+            background-color: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .cta-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.2;
+            color: var(--text-medium);
+        }
+
+        .cta-card p {
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text-dark);
+            text-align: left;
+        }
+
+        .cta-btn {
+            font-size: 24px;
+            padding: 16px 20px;
+        }
+
+        .contact-options-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-options-cta h4 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--brand-primary);
+        }
+
+        .contact-links-cta {
+            display: flex;
+            gap: 10px;
+        }
+
+        .contact-link-cta {
+            flex: 1;
+            background-color: var(--brand-primary);
+            color: var(--bg-light);
+            border-radius: 6px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-link-cta span {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .contact-link-cta small {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        /* CSS for section section:footer */
+        .site-footer {
+            background-image: url('images/130c8e37fe70fc0ce742961b8add5afe9b0285ad.png');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 812px;
+            color: var(--text-light);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-logo img {
+            width: 256px;
+            height: auto;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            line-height: 21px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            line-height: 21px;
+        }
+    </style>
+    <script src="global.js" defer></script>
 </head>
+
 <body>
-
-    <header class="header">
-        <div class="header-inner">
-            <a href="#" class="logo">Kanazawa Vacation Photo</a>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#reviews" data-i18n="nav_reviews">お客様の声</a></li>
-                    <li><a href="#plans" data-i18n="nav_plans">料金プラン</a></li>
-                    <li><a href="#reason" data-i18n="nav_reason">選ばれる理由</a></li>
-                    <li><a href="#flow" data-i18n="nav_flow">ご利用の流れ</a></li>
-                    <li><a href="#faq" data-i18n="nav_faq">Q&A</a></li>
-                    <li><a href="#service-area" data-i18n="nav_service_area">撮影可能エリア</a></li>
-                    <li><a href="#contact" data-i18n="nav_contact">ご予約</a></li>
-                </ul>
-            </nav>
-            <div class="lang-switcher">
-                <a href="javascript:void(0);" data-lang="ja">JA</a> | <a href="javascript:void(0);" data-lang="en" class="active">EN</a> | <a href="javascript:void(0);" data-lang="zh-TW">繁体</a>
-            </div>
-            <button class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="site-header">
+        <div class="logo">
+            <a href="#">
+                <h1>Kanazawa<br>Vacation Photo</h1>
+            </a>
         </div>
+        <nav class="main-nav">
+            <a href="#cta" class="btn btn-primary book-now-btn">Book Now</a>
+            <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="menu-list">
+                <li><a href="#location">Location</a></li>
+                <li><a href="#price">Price</a></li>
+                <li><a href="#options">Option</a></li>
+                <li><a href="#photographer">Photographer</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#flow">Flow</a></li>
+                <li><a href="#qa">Q&A</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <main>
-        <section class="hero">
-            <div class="hero-slideshow">
-                <!-- Background images will be set via CSS/JS -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">Capture the beauty of Kanazawa <br>just for you.</h2>
+            <p class="hero-subtitle">A local photographer will capture unforgettable moments among historic streets and
+                hidden gems.</p>
+        </div>
+        <div class="cookie-banner" id="cookieBanner">
+            <p class="cookie-text">We use cookies. See our&nbsp;<a href="#">Privacy Policy</a>&nbsp;for more
+                information.</p>
+            <a href="#" class="btn btn-secondary cookie-btn" id="cookieBtn">Got it</a>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var btn = document.getElementById('cookieBtn');
+                var banner = document.getElementById('cookieBanner');
+                if (btn && banner) {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        banner.style.transition = 'opacity 0.5s';
+                        banner.style.opacity = '0';
+                        setTimeout(function () {
+                            banner.style.display = 'none';
+                        }, 500);
+                    });
+                }
+            });
+        </script>
+    </section>
+    <section id="location" class="location-section">
+        <h2 class="section-title">Location</h2>
+        <div class="location-gallery">
+            <figure class="location-card">
+                <img src="images/1c38c19d54d5e7ae6e4e73fb600ca739a0af564b.png" alt="Higashi Chaya District">
+                <figcaption>Higashi Chaya District</figcaption>
+            </figure>
+            <figure class="location-card">
+                <img src="images/97205577fe2d8c115bebc339731f19c0c255709a.png" alt="Kyodenya Rice Shop">
+                <figcaption>Kyodenya Rice Shop</figcaption>
+            </figure>
+            <figure class="location-card">
+                <img src="images/c743bcd4e714c78f6f8596c01f7a019b9232a3bf.png" alt="21st Century Museum, Kanazawa">
+                <figcaption>21st Century Museum, Kanazawa</figcaption>
+            </figure>
+            <figure class="location-card">
+                <img src="images/5e9aba366237339938cb6bb2ac2a3368505e95c7.png" alt="Kazue-machi Chaya District">
+                <figcaption>Kazue-machi Chaya District</figcaption>
+            </figure>
+            <figure class="location-card">
+                <img src="images/c1ace8b08317405a859741fd872c3c8922e61658.png" alt="and more">
+                <figcaption>and more</figcaption>
+            </figure>
+        </div>
+        <div class="location-info">
+            <h3>Based in Kanazawa, available nationwide</h3>
+            <p>We offer on-location photography services primarily in Kanazawa City, but we are happy to travel anywhere
+                across Japan. For shoots outside Kanazawa City, additional travel fees may apply. No matter the location
+                you choose, we’re here to help capture your best memories in photos. Please feel free to contact us for
+                a consultation.</p>
+        </div>
+    </section>
+    <section id="price" class="price-section">
+        <h2 class="section-title">Price</h2>
+        <div class="price-intro">
+            <h3>Included in All Plans</h3>
+            <p>Expertly chosen and edited photos. Photos delivered within 1-3 weeks after the shoot.Shooting time
+                includes transportation duration.</p>
+        </div>
+        <div class="price-plans">
+            <div class="price-card">
+                <h3 class="plan-name">Light</h3>
+                <div class="plan-price">
+                    <span class="price-amount">¥33,000</span>
+                    <span class="price-tax">¥36,300 tax included</span>
+                </div>
+                <ul class="plan-features">
+                    <li>1 hour</li>
+                    <li>Around 100 shots</li>
+                    <li>1 location</li>
+                </ul>
             </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-catchphrase" data-i18n="hero_catchphrase">美しい金沢で、<br>忘れられない思い出を残しませんか</h1>
-                <p class="hero-bodycopy" data-i18n="hero_bodycopy">金沢の魅力を知り尽くした地元フォトグラファーが、あなたの旅行の特別な瞬間を丁寧に切り取ります。歴史あるひがし茶屋街から美しい兼六園まで、フォトジェニックな金沢で、心に残る一枚を一緒に作りましょう。観光ガイドには載っていない隠れた名所や、季節ごとのベストスポットもご案内します。</p>
-                <a href="#contact" class="cta-button" data-i18n="hero_cta">今すぐ撮影を予約する</a>
+            <div class="price-card standard-plan">
+                <div class="top-pick-badge">
+                    <img src="images/4e18dfbfbe55e0a976a00261d8276279d3e4cf97.png" alt="Top Pick ribbon">
+                    <span>Top Pick !</span>
+                </div>
+                <h3 class="plan-name">Standard</h3>
+                <div class="plan-price">
+                    <span class="price-amount">¥55,000</span>
+                    <span class="price-tax">¥60,500 tax included</span>
+                </div>
+                <ul class="plan-features">
+                    <li>2 hour</li>
+                    <li>Around 200 shots</li>
+                    <li>1-2 location</li>
+                </ul>
             </div>
-        </section>
-
-        <section class="promo-video-section">
-            <video class="promo-video" src="assets/movie/mv.mp4" autoplay muted loop playsinline></video>
-        </section>
-
-        <section id="reviews" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_reviews">お客様の声</h2>
-            <div class="card-grid reviews-grid">
-                <!-- Review Cards -->
-                <div class="card review-card">
-                    <div class="review-header">
-                        <span class="review-author" data-i18n="review_sarah_author">サラ・M様 (アメリカ)</span>
-                        <span class="review-rating">★★★★★</span>
-                    </div>
-                    <p class="review-text" data-i18n="review_sarah_text">"touchさんは本当に素晴らしいフォトグラファーでした！金沢の美しいスポットに案内していただき、新婚旅行の思い出を完璧に残してくれました。想像以上の仕上がりに感激です。心からおすすめします！"</p>
+            <div class="price-card">
+                <h3 class="plan-name">Premium</h3>
+                <div class="plan-price">
+                    <span class="price-amount">¥88,000</span>
+                    <span class="price-tax">¥96,800 tax included</span>
                 </div>
-                <div class="card review-card">
-                    <div class="review-header">
-                        <span class="review-author" data-i18n="review_james_author">ジェームズ・L様 (オーストラリア)</span>
-                        <span class="review-rating">★★★★★</span>
-                    </div>
-                    <p class="review-text" data-i18n="review_james_text">"プロフェッショナルでフレンドリー、そして金沢を知り尽くしているtouchさん。兼六園での桜の写真は息を呑むほど美しかったです。お値段以上の価値がありました！"</p>
-                </div>
-                <div class="card review-card">
-                    <div class="review-header">
-                        <span class="review-author" data-i18n="review_emma_author">エマ・K様 (イギリス)</span>
-                        <span class="review-rating">★★★★★</span>
-                    </div>
-                    <p class="review-text" data-i18n="review_emma_text">"touchさんのおかげで撮影中とてもリラックスできました。私たちだけでは見つけられなかった隠れた名所に案内してくれて、写真は驚くほど美しく仕上がりました。一生の宝物です。"</p>
-                </div>
-                <div class="card review-card">
-                    <div class="review-header">
-                        <span class="review-author" data-i18n="review_michael_author">マイケル・R様 (カナダ)</span>
-                        <span class="review-rating">★★★★★</span>
-                    </div>
-                    <p class="review-text" data-i18n="review_michael_text">"素晴らしいサービスでした！touchさんは時間通りで、プロフェッショナル、そして非常に才能豊かです。金沢での家族写真は今、我が家に誇らしげに飾られています。ありがとうございました！"</p>
-                </div>
+                <ul class="plan-features">
+                    <li>3 hour</li>
+                    <li>300+ shots</li>
+                    <li>3-4 location</li>
+                </ul>
             </div>
-        </section>
-
-        <section id="plans" class="content-section bg-light">
-            <h2 class="section-title" data-i18n="section_title_plans">料金プラン</h2>
-            <div class="card-grid plans-grid">
-                <!-- Plan Cards -->
-                <div class="card plan-card">
-                    <h3 class="plan-name" data-i18n="plan_light_name">ライトプラン</h3>
-                    <p class="plan-price"><span data-i18n="plan_light_price">35,000円</span> <span class="plan-duration" data-i18n="plan_light_duration">(1時間)</span></p>
-                    <ul class="plan-features">
-                        <li data-i18n="plan_light_feature1">30枚の編集済み写真</li>
-                        <li data-i18n="plan_light_feature2">1箇所の撮影（兼六園 or ひがし茶屋街）</li>
-                        <li data-i18n="plan_light_feature3">7日以内のオンライン納品</li>
-                        <li data-i18n="plan_light_feature4">カップル・少人数グループにおすすめ</li>
-                    </ul>
+        </div>
+    </section>
+    <section id="options" class="options-section">
+        <h2 class="section-title">Option</h2>
+        <div class="options-list">
+            <div class="option-card">
+                <img src="images/393_97.svg" alt="Speedy delivery icon" class="option-icon">
+                <h3 class="option-title">Speedy delivery</h3>
+                <div class="option-price">
+                    <span class="price-amount">¥15,000</span>
+                    <span class="price-tax">¥16,500 tax included</span>
                 </div>
-                <div class="card plan-card popular">
-                    <span class="popular-badge" data-i18n="plan_standard_popular">一番人気</span>
-                    <h3 class="plan-name" data-i18n="plan_standard_name">スタンダードプラン</h3>
-                    <p class="plan-price"><span data-i18n="plan_standard_price">55,000円</span> <span class="plan-duration" data-i18n="plan_standard_duration">(2時間)</span></p>
-                    <ul class="plan-features">
-                        <li data-i18n="plan_standard_feature1">60枚の編集済み写真</li>
-                        <li data-i18n="plan_standard_feature2">2〜3箇所の撮影（隠れスポット含む）</li>
-                        <li data-i18n="plan_standard_feature3">5日以内のオンライン納品</li>
-                        <li data-i18n="plan_standard_feature4">撮影アドバイス付き</li>
-                        <li data-i18n="plan_standard_feature5">ご家族・友人グループに最適</li>
-                    </ul>
-                </div>
-                <div class="card plan-card">
-                    <h3 class="plan-name" data-i18n="plan_premium_name">プレミアムプラン</h3>
-                    <p class="plan-price"><span data-i18n="plan_premium_price">85,000円</span> <span class="plan-duration" data-i18n="plan_premium_duration">(3時間)</span></p>
-                    <ul class="plan-features">
-                        <li data-i18n="plan_premium_feature1">100枚の編集済み写真</li>
-                        <li data-i18n="plan_premium_feature2">4〜5箇所の撮影（地元ならではのスポット）</li>
-                        <li data-i18n="plan_premium_feature3">3日以内のオンライン納品</li>
-                        <li data-i18n="plan_premium_feature4">撮影アドバイス付き</li>
-                        <li data-i18n="plan_premium_feature5">記念アルバム付き</li>
-                    </ul>
-                </div>
+                <p class="option-description">Recommended for those who want photos as soon as possible! Delivered
+                    within 72 hours from the date of the photo shoot.</p>
             </div>
-            <p class="plan-common-note" data-i18n="plan_common_note">全プラン共通：プロ仕様の編集、高解像度ダウンロード、商用利用可</p>
-        </section>
-        
-        <section id="options" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_options">オプションサービス</h2>
-            <div class="card-grid options-grid">
-                 <div class="card option-card">
-                    <h3 class="option-title" data-i18n="option_delivery_title">納期短縮</h3>
-                    <ul class="option-list">
-                        <li data-i18n="option_delivery_24h">24時間以内納品: <span>+15,000円</span></li>
-                        <li data-i18n="option_delivery_48h">48時間以内納品: <span>+8,000円</span></li>
-                    </ul>
+            <div class="option-card">
+                <img src="images/393_95.svg" alt="Skin retouching icon" class="option-icon">
+                <h3 class="option-title">Skin Retouching</h3>
+                <div class="option-price">
+                    <span class="price-amount">¥15,000</span>
+                    <span class="price-tax">¥16,500 tax included</span>
                 </div>
-                <div class="card option-card">
-                    <h3 class="option-title" data-i18n="option_raw_title">RAWデータ</h3>
-                    <ul class="option-list">
-                        <li data-i18n="option_raw_all">全ての未編集RAWファイル: <span>+20,000円</span></li>
-                    </ul>
-                </div>
-                <div class="card option-card">
-                    <h3 class="option-title" data-i18n="option_retouch_title">プロレタッチ</h3>
-                    <ul class="option-list">
-                        <li data-i18n="option_retouch_skin">高度な美肌加工: <span>+5,000円</span></li>
-                        <li data-i18n="option_retouch_teeth">歯のホワイトニング: <span>+3,000円</span></li>
-                        <li data-i18n="option_retouch_background">背景の補正・加工: <span>+8,000円</span></li>
-                    </ul>
-                </div>
-                <div class="card option-card">
-                    <h3 class="option-title" data-i18n="option_additional_title">追加サービス</h3>
-                    <ul class="option-list">
-                        <li data-i18n="option_additional_extend_time">撮影時間1時間延長: <span>+18,000円</span></li>
-                        <li data-i18n="option_additional_second_shooter">セカンドカメラマン: <span>+25,000円</span></li>
-                        <li data-i18n="option_additional_kimono">着物レンタル手配: <span>+12,000円</span></li>
-                        <li data-i18n="option_additional_drone">ドローン撮影（天候次第）: <span>+15,000円</span></li>
-                    </ul>
-                </div>
-                <div class="card option-card">
-                    <h3 class="option-title" data-i18n="option_products_title">写真商品</h3>
-                    <ul class="option-list">
-                        <li data-i18n="option_products_album">プレミアム写真集 (20P): <span>+18,000円</span></li>
-                        <li data-i18n="option_products_canvas">キャンバスプリント: <span>8,000円〜</span></li>
-                        <li data-i18n="option_products_slideshow">BGM付きデジタルスライドショー: <span>+10,000円</span></li>
-                    </ul>
-                </div>
+                <p class="option-description">This option includes skin smoothing for 10 selected photos. If we receive
+                    a request for 10 skin-retouched images close to the due date, they may be delivered late.</p>
             </div>
-        </section>
-
-        <section id="gallery" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_gallery">フォトギャラリー</h2>
-            <div class="gallery-grid">
-                <img src="assets/images/0001_xlarge.jpg" alt="Kanazawa Photo 1" class="gallery-item">
-                <img src="assets/images/0007_xlarge.jpg" alt="Kanazawa Photo 3" class="gallery-item">
-                <img src="assets/images/0032_xlarge.jpg" alt="Kanazawa Photo 5" class="gallery-item">
-                <img src="assets/images/0038_xlarge.jpg" alt="Kanazawa Photo 7" class="gallery-item">
-                <img src="assets/images/0053_xlarge.jpg" alt="Kanazawa Photo 9" class="gallery-item">
-                <img src="assets/images/0063_xlarge.jpg" alt="Kanazawa Photo 11" class="gallery-item">
-                <img src="assets/images/0072_xlarge.jpg" alt="Kanazawa Photo 13" class="gallery-item">
-                <img src="assets/images/0088_xlarge.jpg" alt="Kanazawa Photo 16" class="gallery-item">
-                <img src="assets/images/0090_xlarge.jpg" alt="Kanazawa Photo 18" class="gallery-item">
-                <img src="assets/images/0102_xlarge.jpg" alt="Kanazawa Photo 21" class="gallery-item">
-                <img src="assets/images/0107_xlarge.jpg" alt="Kanazawa Photo 23" class="gallery-item">
-                <img src="assets/images/0139_xlarge.jpg" alt="Kanazawa Photo 25" class="gallery-item">
-                <img src="assets/images/0161_xlarge.jpg" alt="Kanazawa Photo 27" class="gallery-item">
-                <img src="assets/images/0185_xlarge.jpg" alt="Kanazawa Photo 29" class="gallery-item">
-                <img src="assets/images/0201_xlarge.jpg" alt="Kanazawa Photo 31" class="gallery-item">
-                <img src="assets/images/0227_xlarge.jpg" alt="Kanazawa Photo 33" class="gallery-item">
-                <img src="assets/images/0246_xlarge.jpg" alt="Kanazawa Photo 35" class="gallery-item">
-                <img src="assets/images/0251_xlarge.jpg" alt="Kanazawa Photo 37" class="gallery-item">
-                <img src="assets/images/0270_xlarge.jpg" alt="Kanazawa Photo 39" class="gallery-item">
-                <img src="assets/images/0281_xlarge.jpg" alt="Kanazawa Photo 41" class="gallery-item">
+            <div class="option-card">
+                <img src="images/393_99.svg" alt="RAW data delivery icon" class="option-icon">
+                <h3 class="option-title">RAW data delivery</h3>
+                <div class="option-price">
+                    <span class="price-amount">¥20,000</span>
+                    <span class="price-tax">¥22,000 tax included</span>
+                </div>
+                <p class="option-description">We will also deliver the photo data in RAW format, in addition to the
+                    delivered photos. When posting photos edited from RAW data on SNS or elsewhere, please indicate that
+                    the photographer and editor are different.</p>
             </div>
-        </section>
-
-        <section id="reason" class="content-section bg-light">
-            <h2 class="section-title" data-i18n="section_title_reason">金沢バケーションフォトが選ばれる理由</h2>
-            <div class="card-grid reason-grid">
-                <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_love_title">地元金沢への深い愛着</h3>
-                    <p data-i18n="reason_love_text">金沢生まれ・育ちのフォトグラファーが、ガイドブックに載らない隠れた名所や季節毎の最高のロケーションをご案内します。</p>
-                </div>
-                <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_skill_title">確かな技術と実績</h3>
-                    <p data-i18n="reason_skill_text">ゲッティイメージズジャパンフォトコンテスト入賞など、数々の賞を受賞した実力派フォトグラファーが撮影します。</p>
-                </div>
-                <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_season_title">季節の美しさを知り尽くす</h3>
-                    <p data-i18n="reason_season_text">春の桜、夏の緑、秋の紅葉、冬の雪景色。金沢の四季の魅力を最大限に活かした撮影をご提案します。</p>
-                </div>
-                <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_communication_title">丁寧なコミュニケーション</h3>
-                    <p data-i18n="reason_communication_text">お客様のご希望を丁寧にお聞きし、撮影スタイルや構図について分かりやすくご説明。リラックスして撮影に臨めます。</p>
-                </div>
-                 <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_experience_title">300組以上の撮影実績</h3>
-                    <p data-i18n="reason_experience_text">海外からのお客様を中心に、300組以上の撮影実績。5つ星の評価を数多くいただいております。</p>
-                </div>
-                <div class="card reason-card">
-                    <h3 class="reason-title" data-i18n="reason_custom_title">オーダーメイドの撮影</h3>
-                    <p data-i18n="reason_custom_text">お客様のご要望に応じて、撮影プランを完全にカスタマイズ。あなただけの特別な写真をお作りします。</p>
-                </div>
+        </div>
+    </section>
+    <section id="photographer" class="photographer-section">
+        <h2 class="section-title">Photographer</h2>
+        <div class="photographer-profile">
+            <img src="images/0f22fd2f7df2c7289e00580e8a63518aa35320e0.png" alt="Photographer Touch" class="profile-pic">
+            <h3 class="profile-name">touch</h3>
+        </div>
+        <p class="photographer-bio">Born in 1983 in Kanazawa, Japan. Freelance photographer and graphic designer. With a
+            deep love for my hometown, I work to share the charm of Kanazawa through photography. I strive to capture
+            everyday moments with care, preserving not just the scene, but also the atmosphere and emotions of the
+            moment.</p>
+        <div class="photographer-quote">
+            <p>“Let me help you preserve your special moments in Kanazawa — photos that will bring back joyful memories,
+                even years from now.”</p>
+        </div>
+        <div class="photographer-details">
+            <div class="detail-item">
+                <h4>Specialties</h4>
+                <p>Kanazawa street snaps, Family portraits, travel photography</p>
             </div>
-        </section>
-
-        <section id="flow" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_flow">ご利用の流れ</h2>
-            <div class="flow-steps">
-                <div class="card flow-step">
-                    <div class="flow-step-header">
-                        <div class="flow-step-number" data-i18n="flow_step1_num">STEP 1</div>
-                        <h3 class="flow-step-title" data-i18n="flow_step1_title">ご予約</h3>
-                    </div>
-                    <p data-i18n="flow_step1_text">お好みのプランと希望日時をオンラインまたはLINEでご連絡ください。24時間以内に撮影確定のご連絡をいたします。</p>
-                </div>
-                <div class="card flow-step">
-                    <div class="flow-step-header">
-                        <div class="flow-step-number" data-i18n="flow_step2_num">STEP 2</div>
-                        <h3 class="flow-step-title" data-i18n="flow_step2_title">事前打ち合わせ</h3>
-                    </div>
-                    <p data-i18n="flow_step2_text">撮影のご希望やイメージをお聞かせください。最適なロケーション、時間、服装などを一緒に計画します。</p>
-                </div>
-                <div class="card flow-step">
-                    <div class="flow-step-header">
-                        <div class="flow-step-number" data-i18n="flow_step3_num">STEP 3</div>
-                        <h3 class="flow-step-title" data-i18n="flow_step3_title">撮影当日</h3>
-                    </div>
-                    <p data-i18n="flow_step3_text">指定の場所でお待ちしております。リラックスした雰囲気で、複数のスポットを巡りながら楽しく撮影しましょう。</p>
-                </div>
-                <div class="card flow-step">
-                    <div class="flow-step-header">
-                        <div class="flow-step-number" data-i18n="flow_step4_num">STEP 4</div>
-                        <h3 class="flow-step-title" data-i18n="flow_step4_title">写真のお渡し</h3>
-                    </div>
-                    <p data-i18n="flow_step4_text">プロ仕様の編集後、オンラインギャラリーで納品します。高解像度で、写真は永久に保存されます。</p>
-                </div>
+            <div class="detail-item">
+                <h4>Awards</h4>
+                <p>2nd place – Getty Images Japan Photo Contest,Ishikawa Photo Contest Winner – Chairman’s Award from
+                    the Ishikawa Prefectural Assembly, and more.</p>
             </div>
-        </section>
-
-        <section id="faq" class="content-section bg-light">
-            <h2 class="section-title" data-i18n="section_title_faq">よくあるご質問</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faq_rain_q">雨が降った場合はどうなりますか？</button>
-                    <div class="faq-answer">
-                        <p data-i18n="faq_rain_a">天候は事前に確認し、無料で日程変更を承ります。小雨の場合は、雨ならではの情緒ある写真も撮影可能ですので、ご相談させていただきます。</p>
-                    </div>
+        </div>
+    </section>
+    <section id="gallery" class="gallery-section">
+        <h2 class="visually-hidden">Photo Gallery</h2>
+        <div class="gallery-grid">
+            <img src="images/35cd86fa31578914817a2031be1829f4da231832.png" alt="Gallery image 1" class="gallery-item">
+            <img src="images/240f194f6de3463050a4d7b9f6c2352e09809696.png" alt="Gallery image 2" class="gallery-item">
+            <img src="images/da0fc159758b570ffcce15fc857366b7dd410cce.png" alt="Gallery image 3" class="gallery-item">
+            <div class="gallery-row">
+                <img src="images/5b12361bd81250561900bd0eea7e546e3ddb69c7.png" alt="Gallery image 4"
+                    class="gallery-item">
+                <img src="images/333cf666b61d842560ffe9b04c9255b338e0cc52.png" alt="Gallery image 5"
+                    class="gallery-item">
+            </div>
+            <div class="gallery-row">
+                <img src="images/e4af3fe81b7aeac52ac077c24938b53d06b5b97c.png" alt="Gallery image 6"
+                    class="gallery-item">
+                <img src="images/8fa91a7ed06f61480dfda820e484831bec075391.png" alt="Gallery image 7"
+                    class="gallery-item">
+            </div>
+            <div class="gallery-row">
+                <img src="images/2183744c78683ea8bc2a98f180b88ba4e6fc9313.png" alt="Gallery image 8"
+                    class="gallery-item">
+                <img src="images/a05b1e4549b32a69bf5d5e95b65de45a78d95d11.png" alt="Gallery image 9"
+                    class="gallery-item">
+            </div>
+            <img src="images/254e277a6a8ec0706ad338fe05ce04390ea240f6.png" alt="Gallery image 10" class="gallery-item">
+        </div>
+    </section>
+    <section id="flow" class="flow-section">
+        <h2 class="section-title">Flow</h2>
+        <div class="flow-steps">
+            <div class="flow-step">
+                <div class="step-number">
+                    <span>STEP</span>
+                    <div class="circle">1</div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faq_group_q">大人数のグループでも撮影できますか？</button>
-                    <div class="faq-answer">
-                        <p data-i18n="faq_group_a">はい、15名様まで対応可能です。8名様を超える場合は追加料金が発生する場合がございますので、お問い合わせください。</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faq_kimono_q">着物のレンタルはできますか？</button>
-                    <div class="faq-answer">
-                        <p data-i18n="faq_kimono_a">はい、信頼できる地元の着物レンタル店と提携しており、手配を承ります（別途料金）。事前のご予約が必要です。</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faq_location_q">希望の場所での撮影は可能ですか？</button>
-                    <div class="faq-answer">
-                        <p data-i18n="faq_location_a">もちろんです！金沢市内は料金内で対応可能です。市外への出張撮影も承っておりますので、お気軽にご相談ください。交通費が別途発生する場合がございます。</p>
-                    </div>
-                </div>
-                 <div class="faq-item">
-                    <button class="faq-question" data-i18n="faq_commercial_q">写真の商用利用は可能ですか？</button>
-                    <div class="faq-answer">
-                        <p data-i18n="faq_commercial_a">はい、全プランで商用利用権が含まれています。SNSやウェブサイト、マーケティング資料などにご自由にお使いいただけます。</p>
+                <div class="step-content">
+                    <h3>Reservation</h3>
+                    <p>Please contact us via the booking form or LINE with your preferred plan and date. We will confirm
+                        your session within 24 hours.</p>
+                    <div class="step-actions">
+                        <a href="#cta" class="btn btn-primary">Book Now</a>
+                        <div class="contact-options">
+                            <h4>Contact Us</h4>
+                            <div class="contact-links">
+                                <a href="#" class="contact-link"><span>instagram</span><small>（DM）</small></a>
+                                <a href="#" class="contact-link"><span>on LINE</span><small>(popular in
+                                        Asia)</small></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="photographer" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_photographer">フォトグラファー紹介</h2>
-            <div class="photographer-profile card">
-                <div class="profile-image">
-                    <img src="assets/images/profile.png" alt="フォトグラファー 山下辰行 (Touch)">
+            <div class="flow-step">
+                <div class="step-number">
+                    <span>STEP</span>
+                    <div class="circle">2</div>
                 </div>
-                <div class="profile-details">
-                    <h3 class="profile-name" data-i18n="photographer_name">山下辰行 (Touch)</h3>
-                    <p class="profile-bio" data-i18n="photographer_bio">1983年金沢市生まれ。フリーフォトグラファー／グラフィックデザイナー。生まれ育った金沢の魅力を写真を通じて多くの人に伝えたいという想いで活動しています。日常の何気ない瞬間を丁寧に切り取り、その場の空気感や感情も一緒に写真に込めることを大切にしています。</p>
-                    <div class="profile-specialties">
-                        <h4 data-i18n="photographer_specialties_title">得意分野</h4>
-                        <p data-i18n="photographer_specialties_list">家族写真, 金沢スナップ, 旅行写真</p>
+                <div class="step-content">
+                    <h3>Pre-shoot<br>Consultation</h3>
+                    <p>Let us know your preferences and the image you have in mind. We’ll work together to decide on the
+                        best locations, timing, and outfits.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="step-number">
+                    <span>STEP</span>
+                    <div class="circle">3</div>
+                </div>
+                <div class="step-content">
+                    <h3>Photo Session Day</h3>
+                    <p>We’ll meet at the designated location. Enjoy a relaxed and fun shoot as we explore multiple spots
+                        together.</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="step-number">
+                    <span>STEP</span>
+                    <div class="circle">4</div>
+                </div>
+                <div class="step-content">
+                    <h3>Photo Delivery</h3>
+                    <p>After professional editing, your photos will be delivered as high-resolution online data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="qa" class="qa-section">
+        <h2 class="section-title">Q&A</h2>
+        <div class="qa-list">
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">What happens if it rains?</span>
+                    <img src="images/I411_1177_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for what happens if it rains.</p>
+                </div>
+            </details>
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">Can you accommodate large groups?</span>
+                    <img src="images/I411_1912_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for accommodating large groups.</p>
+                </div>
+            </details>
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">Is kimono rental available?</span>
+                    <img src="images/I411_1936_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for kimono rental.</p>
+                </div>
+            </details>
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">Can I choose the location for the shoot?</span>
+                    <img src="images/I411_1960_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for choosing the location.</p>
+                </div>
+            </details>
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">Can I use the photos for commercial purposes?</span>
+                    <img src="images/I411_1984_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for commercial use of photos.</p>
+                </div>
+            </details>
+            <details class="qa-item">
+                <summary class="qa-question">
+                    <span class="q-marker">Q.</span>
+                    <span class="q-text">What happens if I need to cancel?</span>
+                    <img src="images/I411_2008_411_1158.svg" alt="toggle icon" class="q-icon">
+                </summary>
+                <div class="qa-answer">
+                    <p>Answer for cancellation policy.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+    <section id="cta" class="cta-section">
+        <h2 class="cta-title">Reservations & Inquiries</h2>
+        <div class="cta-cards">
+            <div class="cta-card">
+                <h3>Easy Online Booking</h3>
+                <p>Submit your request anytime, 24/7. We’ll get back to you via email once your request is confirmed.
+                </p>
+                <a href="#" class="btn btn-primary cta-btn">Book Now</a>
+            </div>
+            <div class="cta-card">
+                <h3>Quick Consultation<br>via LINE</h3>
+                <p>Share your ideas and adjust your reservation easily. Feel free to reach out — we're happy to help!
+                </p>
+                <div class="contact-options-cta">
+                    <h4>Contact Us</h4>
+                    <div class="contact-links-cta">
+                        <a href="#" class="contact-link-cta">
+                            <span>instagram</span>
+                            <small>（DM）</small>
+                        </a>
+                        <a href="#" class="contact-link-cta">
+                            <span>on LINE</span>
+                            <small>(popular in Asia)</small>
+                        </a>
                     </div>
-                    <div class="profile-awards">
-                        <h4 data-i18n="photographer_awards_title">受賞歴</h4>
-                        <p data-i18n="photographer_awards_list">ゲッティイメージズジャパン フォトコンテスト 2位, いしかわフォトコンテスト入賞・石川県議会議長賞 など</p>
-                    </div>
-                     <p class="profile-message" data-i18n="photographer_message">"金沢での特別な時間を、私の写真で永遠に残しませんか？何年後に見返しても『あの時楽しかったな』と思えるような作品をお作りします。"</p>
                 </div>
             </div>
-        </section>
-        
-        <section id="service-area" class="content-section bg-light">
-            <h2 class="section-title" data-i18n="section_title_service_area">撮影可能エリア</h2>
-            <div class="service-area-info card">
-                <p data-i18n="service_area_text">金沢市を中心に、日本全国どこへでも出張撮影に伺います。金沢市外への出張撮影の場合、別途交通費を頂戴いたしますが、お客様のご希望の場所で最高の思い出を写真に残すお手伝いをさせていただきます。まずはお気軽にご相談ください。</p>
-            </div>
-        </section>
-
-        <section id="contact" class="content-section">
-            <h2 class="section-title" data-i18n="section_title_contact">ご予約・お問い合わせ</h2>
-            <div class="card-grid contact-grid">
-                <div class="card contact-card">
-                    <h3 class="contact-title" data-i18n="contact_online_title">かんたんネット予約</h3>
-                    <p data-i18n="contact_online_text">24時間いつでもお申し込みいただけます。確認後、メールでご連絡いたします。</p>
-                    <a href="http://www.kanazawa-vacation-photo.com/book" target="_blank" class="cta-button" data-i18n="contact_online_cta">オンラインで予約する</a>
-                </div>
-                <div class="card contact-card">
-                    <h3 class="contact-title" data-i18n="contact_line_title">LINEで気軽にご相談</h3>
-                    <p data-i18n="contact_line_text">撮影イメージの共有や、予約調整もスムーズです。まずはお気軽にご連絡ください。</p>
-                    <a href="https://line.me/ti/p/%40kanazawa-photo" target="_blank" class="cta-button" data-i18n="contact_line_cta">LINEで相談する</a>
-                    <p class="line-id"><span data-i18n="contact_line_id">LINE ID:</span> @kanazawa-photo</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-info">
-                <p data-i18n="footer_copyright">&copy; 2024 Kanazawa Vacation Photo by Touch Design. All Rights Reserved.</p>
-                <p><a href="privacy-policy.html" data-i18n="footer_privacy" id="footer-privacy-link">プライバシーポリシー</a></p>
-            </div>
-            <div class="footer-social">
-                <!-- Add social media links here -->
-            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <a href="#" class="footer-logo">
+                <img src="images/01ccb7db3b570c85894fdbab3dc61dabd0e1c06d.png" alt="Photoko Logo">
+            </a>
+            <a href="#" class="footer-link">Check Availability (Japanese only)</a>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy</a>
+            <span>©Photoko by touchdesign.</span>
         </div>
     </footer>
-
-    <div class="cookie-banner" id="cookie-banner">
-        <p><span data-i18n="cookie_text_part1">当サイトでは、お客様の利便性向上やサイト分析のためにクッキーを使用しています。</span><a href="/privacy-policy">プライバシーポリシー</a><span data-i18n="cookie_text_part2">をご確認の上、同意するボタンを押してください。</span></p>
-        <button class="cookie-consent-button" id="cookie-consent-button" data-i18n="cookie_consent_button">同意する</button>
-    </div>
-
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
 </body>
+
 </html>
