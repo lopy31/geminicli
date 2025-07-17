@@ -51,6 +51,11 @@
             gap: 16px;
         }
 
+        .main-nav .book-now-btn {
+            padding: 9px 17px;
+        }
+
+        /* ハンバーガーアイコン */
         .menu-toggle {
             background: none;
             border: none;
@@ -75,6 +80,7 @@
             transition: 0.3s;
         }
 
+        /* 開閉アニメーション */
         .menu-toggle.active .bar:nth-child(1) {
             transform: translateY(11px) rotate(45deg);
         }
@@ -87,6 +93,7 @@
             transform: translateY(-11px) rotate(-45deg);
         }
 
+        /* メニューリスト */
         .menu-list {
             position: fixed;
             top: 0;
@@ -107,10 +114,6 @@
             font-size: 18px;
         }
 
-        .menu-list.open {
-            transform: translateX(0);
-        }
-
         .menu-list li {
             list-style: none;
 
@@ -128,88 +131,73 @@
             text-decoration: none;
             font-weight: 700;
             transition: color 0.2s;
+
+            &.btn-primary {
+                color: #fff;
+                font-weight: 900;
+                width: 100%;
+            }
+
+            &.contact-link {
+                color: #fff;
+            }
         }
 
-        .menu-list a.btn-primary {
-            color: #fff;
-            font-weight: 900;
-            width: 100%;
-            background: var(--brand-primary, #007aff);
+        .contact-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .contact-link {
+            flex: 1;
+            background-color: var(--brand-primary);
+            color: var(--bg-light);
             border-radius: 6px;
-            padding: 10px 0;
-            display: block;
+            padding: 9px;
             text-align: center;
-        }
-
-        .menu-list a.contact-link {
-            background: var(--brand-primary, #007aff);
-            color: #fff;
-            border-radius: 6px;
-            padding: 8px 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        .menu-list a.contact-link span {
-            font-family: var(--font-display, 'Sofia Sans', sans-serif);
+        .contact-link span {
+            font-family: var(--font-display);
             font-weight: 900;
             font-size: 18px;
             line-height: 1.2;
         }
 
-        .menu-list a.contact-link small {
-            font-family: var(--font-display, 'Sofia Sans', sans-serif);
+        .contact-link small {
+            font-family: var(--font-display);
             font-weight: 400;
             font-size: 12px;
             line-height: 1.2;
         }
 
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
+        .menu-list a:hover {
+            color: var(--brand-primary, #007aff);
+        }
 
-            .menu-list {
-                position: static;
-                flex-direction: row;
-                height: auto;
-                width: auto;
-                background: none;
-                box-shadow: none;
-                padding: 0;
-                gap: 24px;
-                transform: none !important;
-                transition: none;
-                display: flex;
-                align-items: center;
-                font-size: 16px;
-            }
-
-            .menu-list a.btn-primary,
-            .menu-list a.contact-link {
-                margin-bottom: 0;
-                padding: 8px 16px;
-            }
+        /* メニュー表示時 */
+        .menu-list.open {
+            transform: translateX(0);
         }
 
         .policy-section {
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 20px;
             background: #fff;
             border-radius: 16px;
             box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
             padding: 40px 24px;
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 16px;
         }
 
         .policy-section h1 {
             font-family: var(--font-display, 'Sofia Sans', sans-serif);
             font-size: 32px;
             font-weight: 900;
-            margin-bottom: 24px;
             color: var(--brand-primary, #007aff);
         }
 
@@ -218,7 +206,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-top: 32px;
-            margin-bottom: 12px;
+            /* margin-bottom: 12px; */
             color: var(--text-dark, #222);
         }
 
@@ -237,7 +225,10 @@
         }
 
         .policy-section ul {
-            margin-left: 20px;
+            background: var(--bg-light);
+            padding: 16px 16px 16px 32px;
+            border-radius: 10px;
+            /* margin-left: 20px; */
             margin-bottom: 16px;
         }
 
@@ -317,8 +308,9 @@
             </a>
         </div>
         <nav class="main-nav">
-            <a href="#cta" class="btn btn-primary book-now-btn">Book Now</a>
-            <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScqOBsg6oKHSufCD9HqibfNvsEgs7C01NdPBTWXtdf9ifWM9A/viewform"
+                target="_blank" class="btn btn-primary book-now-btn">Book Now</a>
+            <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -333,9 +325,17 @@
                 <li><a href="index.html#qa">Q&A</a></li>
                 <li>
                     <ul>
-                        <li><a href="index.html#cta" class="btn btn-primary">Book Now</a></li>
-                        <li><a href="#" class="contact-link"><span>instagram</span><small>(DM)</small></a></li>
-                        <li><a href="#" class="contact-link"><span>on LINE</span><small>(popular in Asia)</small></a>
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScqOBsg6oKHSufCD9HqibfNvsEgs7C01NdPBTWXtdf9ifWM9A/viewform"
+                                target="_blank" class="btn btn-primary">Book Now</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/photoko.kanazawa" target="_blank"
+                                class="contact-link"><span>instagram</span><small>（DM）</small></a>
+                        </li>
+                        <li>
+                            <a href="https://lin.ee/5eD09P8" target="_blank" class="contact-link"><span>on
+                                    LINE</span><small>(popular in Asia)</small></a>
                         </li>
                     </ul>
                 </li>
