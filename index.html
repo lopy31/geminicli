@@ -12,20 +12,146 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
     <meta name="author" content="能登、ひとおし。プロジェクト">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div id="noto">
+        <div class="c-scroll" aria-hidden="true">
+            <span class="c-scroll__line"></span>
+            <span class="c-scroll__text">SCROLL</span>
+        </div>
         <div class="p-nav">
-            <span class="p-nav__label">目次</span>
+            <span class="p-nav__notice" id="noticeBtn" tabindex="0" role="button" aria-label="お知らせを開く">お知らせ</span>
+            <div class="p-nav__modal" id="noticeModal" style="display: none;">
+                <div class="p-nav__modal-content">
+                    <button class="p-nav__close" id="closeNoticeModalBtn" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="p-notice-slider" id="noticeSlider">
+                        <div class="p-notice-slider__inner">
+                            <button class="p-notice-slider__prev" id="noticePrevBtn" aria-label="前のお知らせ">
+                                <img src="assets/images/ic_arrow-left.svg" alt="前へ" />
+                            </button>
+                            <div class="p-notice-slider__content">
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.8.25</div>
+                                    <div class="p-notice-slider__title">特設サイト公開のお知らせ</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        写真集『能登、ひとおし』の特設サイトを公開しました。<br>
+                                        制作の背景や撮影地の紹介、協賛いただいた企業のご紹介など、プロジェクトの全体像をご覧いただけます。今後もこちらで最新情報を発信してまいりますので、どうぞご期待ください。
+                                    </div>
+                                </div>
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.8.25</div>
+                                    <div class="p-notice-slider__title">写真ギャラリーを追加しました。</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        写真集に収録された作品の一部をオンラインギャラリーとして公開しました。<br>
+                                        能登の美しい風景や人々の笑顔をぜひご覧ください。
+                                    </div>
+                                </div>
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.8.25</div>
+                                    <div class="p-notice-slider__title">復興支援のご協力ありがとうございます。</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        写真集の売上の一部は、能登地域の復興支援活動に寄付されます。<br>
+                                        皆様の温かいご支援に心より感謝申し上げます。
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="p-notice-slider__next" id="noticeNextBtn" aria-label="次のお知らせ">
+                                <img src="assets/images/ic_arrow-right.svg" alt="次へ" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .p-nav__notice {
+                    font-size: 0.875rem;
+                    color: #005fa0;
+                }
+
+                .p-notice-slider {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 16px;
+                    border-radius: 8px;
+                    padding: 20px 16px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                    margin: 24px 0;
+                }
+
+                .p-notice-slider__inner {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                .p-notice-slider__prev,
+                .p-notice-slider__next {
+                    background: none;
+                    border: none;
+                    padding: 8px;
+                    border-radius: 50%;
+                    transition: background 0.2s;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .p-notice-slider__prev:hover,
+                .p-notice-slider__next:hover {
+                    background: #e0e0e0;
+                }
+
+                .p-notice-slider__prev img,
+                .p-notice-slider__next img {
+                    width: 28px;
+                    height: 28px;
+                    display: block;
+                }
+
+                .p-notice-slider__content {
+                    min-width: 220px;
+                    max-width: 320px;
+                    overflow: hidden;
+                    text-align: center;
+                    font-size: 1rem;
+                    color: #fff;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .p-notice-slider__item {
+                    display: none;
+                    width: 100%;
+                    transition: opacity 0.3s;
+                }
+
+                .p-notice-slider__item.active {
+                    display: block;
+                    opacity: 1;
+                }
+            </style>
+            <!-- <span class="p-nav__label">目次</span> -->
             <button class="p-nav__hamburger" id="hamburgerBtn" aria-label="メニューを開く">
                 <span class="p-nav__bar"></span>
                 <span class="p-nav__bar"></span>
             </button>
             <div class="p-nav__modal" id="navModal" style="display: none;">
                 <div class="p-nav__modal-content">
-                    <button class="p-nav__close" id="closeModalBtn" aria-label="閉じる">&times;</button>
+                    <button class="p-nav__close" id="closeModalBtn" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <ul class="p-nav__list">
                         <li><a href="#section1">セクション1</a></li>
                         <li><a href="#section2">セクション2</a></li>
@@ -40,11 +166,10 @@
                 <h1 class="p-mv__title">
                     <img src="/assets/images/title.png" alt="能登、ひとおし。">
                 </h1>
-                <p class="p-mv__subtitle">Noto, Hitooshi.</p>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 
 </html>
