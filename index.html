@@ -67,12 +67,39 @@
                             </button>
                         </div>
                     </div>
+                    <div class="p-nav__modal-content__footer">
+                        <img src="/assets/images/title_vertical.png" alt="">
+                        <small>© 2025 noto-hitooshi.</small>
+                    </div>
                 </div>
             </div>
             <style>
                 .p-nav__notice {
                     font-size: 0.875rem;
                     color: #005fa0;
+                }
+
+                .p-nav__modal-content__footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 24px;
+                    position: absolute;
+                    flex-direction: column;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                .p-nav__modal-content__footer img {
+                    width: 70vw;
+                }
+
+                .p-nav__modal-content__footer small {
+                    font-size: 0.75rem;
+                    display: block;
+                    margin-top: 16px;
                 }
 
                 .p-notice-slider {
@@ -84,7 +111,25 @@
                     border-radius: 8px;
                     padding: 20px 16px;
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-                    margin: 24px 0;
+                    margin: 0;
+                    position: relative;
+                    top: 45%;
+                    transform: translateY(-50%);
+                }
+
+                .p-notice-slider__pager-dot {
+                    background: rgba(255, 255, 255, 0.3);
+                    border: none;
+                    padding: 3px 16px;
+                    cursor: pointer;
+                    font-size: 0.875rem;
+                    color: #005fa0;
+                    appearance: none;
+                    margin: 0 6px;
+                }
+
+                .p-notice-slider__pager-dot.is-active {
+                    background: #fff;
                 }
 
                 .p-notice-slider__inner {
@@ -122,7 +167,6 @@
                     min-width: 220px;
                     max-width: 320px;
                     overflow: hidden;
-                    text-align: center;
                     font-size: 1rem;
                     color: #fff;
                     font-weight: 500;
@@ -141,6 +185,25 @@
                     display: block;
                     opacity: 1;
                 }
+
+                .p-notice-slider__date {
+                    font-size: 0.75em;
+                    font-weight: bold;
+                    margin-bottom: 8px;
+                }
+
+                .p-notice-slider__title {
+                    font-size: 1em;
+                    font-weight: bold;
+                    margin-bottom: 16px;
+                }
+
+                .p-notice-slider__desc {
+                    font-size: 0.875em;
+                    line-height: 1.6;
+                    font-weight: normal;
+                    margin-top: 16px;
+                }
             </style>
             <!-- <span class="p-nav__label">目次</span> -->
             <button class="p-nav__hamburger" id="hamburgerBtn" aria-label="メニューを開く">
@@ -152,11 +215,26 @@
                     <button class="p-nav__close" id="closeModalBtn" aria-label="閉じる">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <ul class="p-nav__list">
-                        <li><a href="#section1">セクション1</a></li>
-                        <li><a href="#section2">セクション2</a></li>
-                        <li><a href="#section3">セクション3</a></li>
-                    </ul>
+                    <div class="p-nav__modal-content__desc">
+                        <b>目次</b>
+                        <ul class="p-nav__list">
+                            <li><a href="#section1">トップ</a></li>
+                            <li><a href="#section2">はじめに</a></li>
+                            <li><a href="#section3">プロジェクトメンバー</a></li>
+                            <li><a href="#section4">撮影地</a></li>
+                            <li><a href="#section5">写真集</a></li>
+
+                        </ul>
+                        <a href="#">
+                            <img src="/assets/images/ic_instagram.svg" alt="">Instagram（写真部FOCUS）
+                        </a>
+                    </div>
+                    <div class="p-nav__modal-content__footer">
+                        <div>
+                            <img src="/assets/images/title_vertical.png" alt="">
+                            <small>© 2025 noto-hitooshi.</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,6 +244,36 @@
                 <h1 class="p-mv__title">
                     <img src="/assets/images/title.png" alt="能登、ひとおし。">
                 </h1>
+            </div>
+        </div>
+
+        <div class="p-intro l-wrap">
+            <div class="l-wrap__inner">
+                <div class="c-index">01. はじめに</div>
+                <h2 class="p-intro__title">
+                    シャッターひとおし、背中をひとおし。
+                </h2>
+                <p>能登は美しい自然と温かい人々が織りなす、かけがえのない場所です。<br>
+                    しかし、震災は多くのものを奪い、人々の心にも深い傷跡を残しました。<br>
+                    だからこそ、今、写真の力が必要なのです。</p>
+                <p>レンズを通して捉えられた能登の姿は、人々に勇気と希望を与え、能登の魅力を改めて伝え、<br>
+                    復興への力強い後押しになると信じています。能登の人推し、能登に一押し。<br>
+                    そんな思いから「能登、ひとおし。」プロジェクトと名づけました。</p>
+                <img src="/assets/images/illust_about.png" alt="">
+            </div>
+        </div>
+
+        <div class="p-intro l-wrap">
+            <div class="l-wrap__inner">
+                <div class="p-intro__desc">
+                    <p>このプロジェクトは単なる記録写真ではありません。</p>
+                    <p>能登の「今」を未来へ繋ぐ希望の光です。</p>
+                    <p>全国たくさんの人に知ってもらえたら。</p>
+                </div>
+                <div class="p-intro__movie">
+                    <video src="/assets/movie/short.mp4" autoplay loop muted playsinline width="640"
+                        height="360"></video>
+                </div>
             </div>
         </div>
     </div>

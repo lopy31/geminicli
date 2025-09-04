@@ -111,15 +111,27 @@ body {
     background-position: -100% 0;
   }
 }
+// コンポーネント
+.c-index {
+  font-size: 0.6em;
+}
 
 // レイアウト
-.l- {
-  &-wrap {
-    &__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
-      box-sizing: border-box;
+.l-wrap {
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+    h2 {
+      color: $mainColor;
+      font-size: 2rem;
+      font-feature-settings: "palt";
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: 0.875em;
+      line-height: 170%;
     }
   }
 }
@@ -170,6 +182,33 @@ body {
     margin-top: 0.5em;
     font-weight: normal;
     opacity: 0.8;
+  }
+}
+
+// はじめに
+.p-intro {
+  position: relative;
+  img {
+    width: 120px;
+    display: block;
+    margin-left: auto;
+  }
+  &__movie {
+    width: 100vw; /* 横幅を決めると */
+    aspect-ratio: 1 / 1; /* 正方形になる */
+    overflow: hidden;
+    // border-radius: 8px;
+    // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: -40px; /* 左に寄せる */
+    margin: 40px 0;
+    video {
+      max-width: 100%;
+      height: 100%;
+      display: block;
+      margin: auto;
+      object-fit: cover;
+    }
   }
 }
 
