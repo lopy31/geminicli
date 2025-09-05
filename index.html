@@ -100,6 +100,7 @@
                     font-size: 0.75rem;
                     display: block;
                     margin-top: 16px;
+                    text-align: center;
                 }
 
                 .p-notice-slider {
@@ -113,7 +114,7 @@
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
                     margin: 0;
                     position: relative;
-                    top: 45%;
+                    top: 40%;
                     transform: translateY(-50%);
                 }
 
@@ -218,14 +219,13 @@
                     <div class="p-nav__modal-content__desc">
                         <b>目次</b>
                         <ul class="p-nav__list">
-                            <li><a href="#section1">トップ</a></li>
-                            <li><a href="#section2">はじめに</a></li>
-                            <li><a href="#section3">プロジェクトメンバー</a></li>
-                            <li><a href="#section4">撮影地</a></li>
-                            <li><a href="#section5">写真集</a></li>
-
+                            <li><a href="#md">01 - トップ</a></li>
+                            <li><a href="#intro">02 - はじめに</a></li>
+                            <li><a href="#member">03 - プロジェクトメンバー</a></li>
+                            <li><a href="#place">04 - 撮影地</a></li>
+                            <li><a href="#photobook">05 - 写真集</a></li>
                         </ul>
-                        <a href="#">
+                        <a href="#" class="p-nav__sns-link">
                             <img src="/assets/images/ic_instagram.svg" alt="">Instagram（写真部FOCUS）
                         </a>
                     </div>
@@ -239,7 +239,7 @@
             </div>
         </div>
 
-        <div class="p-mv l-wrap">
+        <div class="p-mv l-wrap" id="mv">
             <div class="l-wrap__inner">
                 <h1 class="p-mv__title">
                     <img src="/assets/images/title.png" alt="能登、ひとおし。">
@@ -247,7 +247,7 @@
             </div>
         </div>
 
-        <div class="p-intro l-wrap">
+        <div class="p-intro l-wrap" id="intro">
             <div class="l-wrap__inner">
                 <div class="c-index">01. はじめに</div>
                 <h2 class="p-intro__title">
@@ -274,6 +274,38 @@
                     <video src="/assets/movie/short.mp4" autoplay loop muted playsinline width="640"
                         height="360"></video>
                 </div>
+            </div>
+        </div>
+
+        <div class="p-member l-wrap" id="member">
+            <div class="l-wrap__inner">
+                <div class="c-index">02. プロジェクトメンバー</div>
+                <h2 class="p-member__title">
+                    <div class="p-member__title__block">
+                        <img src="/assets/images/name_01.svg" alt="写真家 浅田政志">
+                        <div id="commentBtn" tabindex="0" role="button" aria-label="コメントを開く">
+                            <img src="/assets/images/ic_plus.svg" alt="">コメント
+                        </div>
+                        <div class="p-nav__modal" id="commentModal" style="display: none;">
+                            <div class="p-nav__modal-content">
+                                <button class="p-nav__close" id="closeCommentModalBtn" aria-label="閉じる">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <blockquote>
+                                    FOCUSの皆さんと一緒に能登へ撮影に行かせて頂きます。<br>
+                                    実際、写真にできることは本当に微力だと思います。<br><br>
+                                    いまの能登の姿をありのまま記録すること、<br>
+                                    そして誰かに伝えることくらいかもしれない。<br><br>
+                                    けど今回は1人ではない。FOCUSの皆さんと一緒だ。<br>
+                                    微力でも力を合わせれば、<br>
+                                    能登の復興の一助になると信じて撮影しました。
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/assets/images/cross.svg" alt="">
+                    <img src="/assets/images/name_02.svg" alt="写真部 FOCUS">
+                </h2>
             </div>
         </div>
     </div>

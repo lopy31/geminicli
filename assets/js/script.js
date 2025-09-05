@@ -1,3 +1,4 @@
+// ハンバーガーメニューの開閉
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const navModal = document.getElementById("navModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
@@ -16,6 +17,7 @@ navModal.addEventListener("click", (e) => {
   }
 });
 
+// お知らせモーダルの開閉
 const noticeBtn = document.getElementById("noticeBtn");
 const noticeModal = document.getElementById("noticeModal");
 const closeNoticeModalBtn = document.getElementById("closeNoticeModalBtn");
@@ -34,6 +36,7 @@ noticeModal.addEventListener("click", (e) => {
   }
 });
 
+// お知らせスライダーの初期化
 const slider = document.getElementById("noticeSlider");
 const prevBtn = document.getElementById("noticePrevBtn");
 const nextBtn = document.getElementById("noticeNextBtn");
@@ -94,6 +97,25 @@ updateSlider = function () {
   updatePager();
 };
 updatePager();
+
+// コメントモーダルの開閉
+const commentBtn = document.getElementById("commentBtn");
+const commentModal = document.getElementById("commentModal");
+const closeCommentModalBtn = document.getElementById("closeCommentModalBtn");
+
+commentBtn.addEventListener("click", () => {
+  commentModal.style.display = "block";
+});
+
+closeCommentModalBtn.addEventListener("click", () => {
+  commentModal.style.display = "none";
+});
+
+commentModal.addEventListener("click", (e) => {
+  if (e.target === commentModal) {
+    commentModal.style.display = "none";
+  }
+});
 
 function enableHorizontalScroll() {
   document.body.style.overflowX = "auto";
@@ -167,3 +189,29 @@ window.addEventListener("touchend", onTouchEnd);
 window.addEventListener("mousedown", onTouchStart);
 window.addEventListener("mousemove", onTouchMove);
 window.addEventListener("mouseup", onTouchEnd);
+
+// 背景スライドショー
+const images = [
+  "mv_bg.jpg",
+  "mv_bg_02.jpg",
+  "mv_bg_03.jpg",
+  "mv_bg_04.jpg",
+  "mv_bg_05.jpg",
+  "mv_bg_06.jpg",
+  "mv_bg_07.jpg",
+];
+
+const position = ["75%", "35%", "75%", "75%", "50%", "50%", "50%"];
+
+let current = 0;
+const el = document.querySelector(".p-mv");
+
+// 初期背景
+el.style.backgroundImage = `url(/assets/images/${images[current]})`;
+el.style.backgroundPosition = position[current];
+
+setInterval(() => {
+  current = (current + 1) % images.length;
+  el.style.backgroundImage = `url(/assets/images/${images[current]})`;
+  el.style.backgroundPosition = position[current];
+}, 4000); // 4秒ごとに切り替え
