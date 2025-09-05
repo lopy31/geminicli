@@ -107,6 +107,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+  height: 100%;
   box-sizing: border-box;
 }
 .l-wrap__inner h2 {
@@ -117,7 +118,7 @@ body {
 }
 .l-wrap__inner p {
   font-size: 0.875rem;
-  line-height: 170%;
+  line-height: 200%;
 }
 
 .p-mv {
@@ -174,11 +175,12 @@ body {
 }
 .p-intro__movie {
   width: 100vw; /* 横幅を決めると */
-  aspect-ratio: 1/1; /* 正方形になる */
+  aspect-ratio: 1/1.2; /* 正方形になる */
   overflow: hidden;
   position: relative;
   left: -40px; /* 左に寄せる */
-  margin: 40px 0;
+  top: 40px;
+  margin: 0;
 }
 .p-intro__movie video {
   max-width: 100%;
@@ -187,6 +189,59 @@ body {
   margin: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-member {
+  height: 100dvh;
+  background: url("/assets/images/member_sp.jpg") no-repeat center/cover;
+}
+@media screen and (min-width: 1024px) {
+  .p-member {
+    background: url("/assets/images/member.jpg") no-repeat center/cover;
+  }
+}
+.p-member__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-direction: column-reverse;
+  position: relative;
+  top: 35%;
+  transform: translateY(-50%);
+}
+@media screen and (min-width: 1024px) {
+  .p-member__title {
+    flex-direction: row;
+  }
+}
+.p-member__title__name {
+  display: block;
+  width: 60vw;
+}
+.p-member__title__block #commentBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  font-size: 0.75rem;
+  color: #005fa0;
+  border: 1px solid #005fa0;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 16px;
+}
+.p-member__title__block #commentBtn:hover {
+  background: #fff;
+  color: #005fa0;
+}
+.p-member__title__cross {
+  width: 32px;
+  height: 32px;
 }
 
 .p-nav {
@@ -270,6 +325,25 @@ body {
   position: relative;
   animation: fadeIn 0.2s;
   box-sizing: border-box;
+}
+
+#navModal,
+#noticeModal,
+#commentModal {
+  display: none;
+}
+
+#navModal.show,
+#noticeModal.show,
+#commentModal.show {
+  display: block;
+  animation: fadeIn 0.3s forwards;
+}
+
+#navModal.hide,
+#noticeModal.hide,
+#commentModal.hide {
+  animation: fadeOut 0.3s forwards;
 }
 
 .p-nav__modal-content blockquote {
@@ -376,6 +450,7 @@ body {
   text-decoration: underline;
 }
 
+/* フェードイン */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -386,9 +461,32 @@ body {
     transform: scale(1);
   }
 }
+/* フェードアウト */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
 @media (max-width: 600px) {
   .p-nav__modal-content {
     min-width: unset;
     padding: 1.2em 1rem;
   }
+}
+/* 初期状態（非表示・下にずらす） */
+.fadein {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 表示時 */
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */

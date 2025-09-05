@@ -5,16 +5,27 @@ const closeModalBtn = document.getElementById("closeModalBtn");
 
 hamburgerBtn.addEventListener("click", () => {
   navModal.style.display = "block";
+  // hide クラスを付与してフェードアウト開始
+  navModal.classList.remove("hide");
+  navModal.classList.add("show");
 });
 
 closeModalBtn.addEventListener("click", () => {
-  navModal.style.display = "none";
-});
+  // hide クラスを付与してフェードアウト開始
+  navModal.classList.remove("show");
+  navModal.classList.add("hide");
 
-navModal.addEventListener("click", (e) => {
-  if (e.target === navModal) {
-    navModal.style.display = "none";
-  }
+  // アニメーション終了後に非表示化
+  navModal.addEventListener(
+    "animationend",
+    () => {
+      if (navModal.classList.contains("hide")) {
+        navModal.style.display = "none";
+        navModal.classList.remove("hide");
+      }
+    },
+    { once: true }
+  );
 });
 
 // お知らせモーダルの開閉
@@ -24,16 +35,27 @@ const closeNoticeModalBtn = document.getElementById("closeNoticeModalBtn");
 
 noticeBtn.addEventListener("click", () => {
   noticeModal.style.display = "block";
+  // hide クラスを付与してフェードアウト開始
+  noticeModal.classList.remove("hide");
+  noticeModal.classList.add("show");
 });
 
 closeNoticeModalBtn.addEventListener("click", () => {
-  noticeModal.style.display = "none";
-});
+  // hide クラスを付与してフェードアウト開始
+  noticeModal.classList.remove("show");
+  noticeModal.classList.add("hide");
 
-noticeModal.addEventListener("click", (e) => {
-  if (e.target === noticeModal) {
-    noticeModal.style.display = "none";
-  }
+  // アニメーション終了後に非表示化
+  noticeModal.addEventListener(
+    "animationend",
+    () => {
+      if (noticeModal.classList.contains("hide")) {
+        noticeModal.style.display = "none";
+        noticeModal.classList.remove("hide");
+      }
+    },
+    { once: true }
+  );
 });
 
 // お知らせスライダーの初期化
@@ -105,18 +127,41 @@ const closeCommentModalBtn = document.getElementById("closeCommentModalBtn");
 
 commentBtn.addEventListener("click", () => {
   commentModal.style.display = "block";
+  // hide クラスを付与してフェードアウト開始
+  commentModal.classList.remove("hide");
+  commentModal.classList.add("show");
 });
 
 closeCommentModalBtn.addEventListener("click", () => {
-  commentModal.style.display = "none";
+  // hide クラスを付与してフェードアウト開始
+  commentModal.classList.remove("show");
+  commentModal.classList.add("hide");
+
+  // アニメーション終了後に非表示化
+  commentModal.addEventListener(
+    "animationend",
+    () => {
+      if (commentModal.classList.contains("hide")) {
+        commentModal.style.display = "none";
+        commentModal.classList.remove("hide");
+      }
+    },
+    { once: true }
+  );
 });
 
-commentModal.addEventListener("click", (e) => {
-  if (e.target === commentModal) {
-    commentModal.style.display = "none";
+// スクロールアニメーションの表示制御
+const scrollEl = document.querySelector(".c-scroll");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY === 0) {
+    scrollEl.classList.remove("is-hidden"); // 表示
+  } else {
+    scrollEl.classList.add("is-hidden"); // フェードアウト
   }
 });
 
+// 画面の向きとサイズに応じた横スクロールの有効化・無効化
 function enableHorizontalScroll() {
   document.body.style.overflowX = "auto";
   document.body.style.overflowY = "hidden";
@@ -215,3 +260,19 @@ setInterval(() => {
   el.style.backgroundImage = `url(/assets/images/${images[current]})`;
   el.style.backgroundPosition = position[current];
 }, 4000); // 4秒ごとに切り替え
+
+// フェードインアニメーション
+const targets = document.querySelectorAll(".fadein");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.1 }
+); // 10%見えたら発火
+
+targets.forEach((target) => observer.observe(target));

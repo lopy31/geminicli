@@ -129,6 +129,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
+    height: 100%;
     box-sizing: border-box;
     h2 {
       color: $mainColor;
@@ -138,7 +139,7 @@ body {
     }
     p {
       font-size: 0.875rem;
-      line-height: 170%;
+      line-height: 200%;
     }
   }
 }
@@ -203,19 +204,71 @@ body {
   }
   &__movie {
     width: 100vw; /* 横幅を決めると */
-    aspect-ratio: 1 / 1; /* 正方形になる */
+    aspect-ratio: 1 / 1.2; /* 正方形になる */
     overflow: hidden;
     // border-radius: 8px;
     // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     left: -40px; /* 左に寄せる */
-    margin: 40px 0;
+    top: 40px;
+    margin: 0;
     video {
       max-width: 100%;
       height: 100%;
       display: block;
       margin: auto;
       object-fit: cover;
+    }
+  }
+}
+
+// プロジェクトメンバー
+.p-member {
+  height: 100dvh;
+  background: url("/assets/images/member_sp.jpg") no-repeat center / cover;
+  @media screen and (min-width: 1024px) {
+    background: url("/assets/images/member.jpg") no-repeat center / cover;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-direction: column-reverse;
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+    &__name {
+      display: block;
+      width: 60vw;
+    }
+    &__block {
+      #commentBtn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: 4px;
+        padding: 8px;
+        font-size: 0.75rem;
+        color: $mainColor;
+        border: 1px solid $mainColor;
+        transition: background 0.2s, color 0.2s;
+        margin-top: 16px;
+        &:hover {
+          background: #fff;
+          color: $mainColor;
+        }
+      }
+    }
+    &__cross {
+      width: 32px;
+      height: 32px;
     }
   }
 }
@@ -300,6 +353,22 @@ body {
   position: relative;
   animation: fadeIn 0.2s;
   box-sizing: border-box;
+}
+#navModal,
+#noticeModal,
+#commentModal {
+  display: none;
+}
+#navModal.show,
+#noticeModal.show,
+#commentModal.show {
+  display: block;
+  animation: fadeIn 0.3s forwards;
+}
+#navModal.hide,
+#noticeModal.hide,
+#commentModal.hide {
+  animation: fadeOut 0.3s forwards;
 }
 
 .p-nav__modal-content blockquote {
@@ -411,6 +480,7 @@ body {
   }
 }
 
+/* フェードイン */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -422,9 +492,34 @@ body {
   }
 }
 
+/* フェードアウト */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
 @media (max-width: 600px) {
   .p-nav__modal-content {
     min-width: unset;
     padding: 1.2em 1rem;
   }
+}
+
+// フェードインアニメーション
+/* 初期状態（非表示・下にずらす） */
+.fadein {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 表示時 */
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0);
 }
