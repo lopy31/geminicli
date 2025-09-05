@@ -201,7 +201,7 @@ const images = [
   "mv_bg_07.jpg",
 ];
 
-const position = ["75%", "35%", "75%", "75%", "50%", "50%", "50%"];
+const position = ["75%", "40%", "75%", "75%", "50%", "50%", "25%"];
 
 let current = 0;
 const el = document.querySelector(".p-mv");

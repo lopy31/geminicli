@@ -52,17 +52,17 @@ body {
   background: linear-gradient(
     to top,
     transparent 0%,
-    #333 60%,
+    #fff 60%,
     transparent 100%
   );
-  animation: scroll-line-move-up 1.2s linear infinite;
+  animation: scroll-line-move-up 1.6s linear infinite;
   background-size: 100% 200%;
   background-position: 0 100%;
 }
 
 .c-scroll__text {
   font-size: 12px;
-  color: #333;
+  color: #fff;
   letter-spacing: 0.1rem;
   opacity: 0.7;
 }
