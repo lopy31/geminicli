@@ -52,7 +52,7 @@ body {
   background: linear-gradient(
     to top,
     transparent 0%,
-    #fff 60%,
+    $mainColor 60%,
     transparent 100%
   );
   animation: scroll-line-move-up 1.6s linear infinite;
@@ -62,7 +62,7 @@ body {
 
 .c-scroll__text {
   font-size: 12px;
-  color: #fff;
+  color: $mainColor;
   letter-spacing: 0.1rem;
   opacity: 0.7;
 }
@@ -123,6 +123,34 @@ body {
   font-size: 0.6rem;
 }
 
+// ユーティリティ
+.u-bg--blue {
+  background: $mainColor;
+  color: #fff;
+  .l-wrap__inner {
+    h2 {
+      color: #fff;
+    }
+    p {
+      color: #fff;
+    }
+  }
+}
+.u-sp {
+  display: none;
+}
+.u-pc {
+  display: inline;
+}
+@media screen and (max-width: 600px) {
+  .u-sp {
+    display: inline;
+  }
+  .u-pc {
+    display: none;
+  }
+}
+
 // レイアウト
 .l-wrap {
   &__inner {
@@ -155,6 +183,46 @@ body {
   text-align: center;
   background-size: cover;
   transition: all 1s ease-in-out; /* フェード切り替え風 */
+
+  &__slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    & div {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      &.active {
+        opacity: 1;
+      }
+      &:nth-child(1) {
+        background-position: 75% center;
+      }
+      &:nth-child(2) {
+        background-position: 35% center;
+      }
+      &:nth-child(3) {
+        background-position: 80% center;
+      }
+      &:nth-child(4) {
+        background-position: 75% center;
+      }
+      &:nth-child(5) {
+        background-position: 5% center;
+      }
+      &:nth-child(6) {
+        background-position: 5% center;
+      }
+      &:nth-child(7) {
+        background-position: 25% center;
+      }
+    }
+  }
 
   &__overlay {
     position: absolute;
@@ -273,6 +341,51 @@ body {
   }
 }
 
+// 撮影地
+.p-place {
+  .l-wrap__inner {
+    background: url("/assets/images/illust_map.png") no-repeat
+      bottom/calc(100% - 40px);
+    padding-bottom: 280px;
+  }
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      li {
+        font-size: 0.75rem;
+        line-height: 1.6;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+        span {
+          font-size: 0.75rem;
+          display: block;
+          width: 100px;
+        }
+        p {
+          font-size: 0.75rem;
+          margin: 0;
+        }
+      }
+    }
+    img {
+      width: 160px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
 // ナビゲーション
 .p-nav {
   position: fixed;
@@ -370,112 +483,132 @@ body {
 #commentModal.hide {
   animation: fadeOut 0.3s forwards;
 }
-
-.p-nav__modal-content blockquote {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  margin: auto;
-  font-weight: normal;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60vw;
-}
-.p-nav__modal-content blockquote::before {
-  position: absolute;
-  content: "";
-  left: -32px;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: url(/assets/images/quote_in.svg) no-repeat left center / contain;
-}
-.p-nav__modal-content blockquote::after {
-  position: absolute;
-  content: "";
-  right: -32px;
-  bottom: 0;
-  width: 24px;
-  height: 24px;
-  background: url(/assets/images/quote_out.svg) no-repeat left center / contain;
-}
-
-.p-nav__close {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &::before {
-    content: "";
+.p-nav {
+  &__notice {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 6px;
+      height: 6px;
+      background: #e01818;
+      border-radius: 50%;
+      display: none;
+    }
+    &.unread::after {
+      display: block;
+    }
+  }
+  &__modal-content blockquote {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin: auto;
+    font-weight: normal;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    &::before {
+      position: absolute;
+      content: "";
+      left: -32px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: url(/assets/images/quote_in.svg) no-repeat left center /
+        contain;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      right: -32px;
+      bottom: 0;
+      width: 24px;
+      height: 24px;
+      background: url(/assets/images/quote_out.svg) no-repeat left center /
+        contain;
+    }
+  }
+  &__close {
     position: absolute;
+    top: 24px;
+    right: 24px;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0);
+      border: 1px solid #fff;
+      z-index: 1;
+    }
+
+    span {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      display: block;
+      z-index: 2;
+    }
+
+    span::before,
+    span::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 0;
+      width: 1px;
+      height: 16px;
+      background: #fff;
+      border-radius: 1px;
+    }
+
+    span::before {
+      transform: rotate(45deg);
+    }
+
+    span::after {
+      transform: rotate(-45deg);
+    }
+  }
+  &__list {
+    list-style: none;
+    padding: 1em 3em 1em 0;
+    margin: 1em 0;
     border: 1px solid #fff;
-    z-index: 1;
-  }
+    border-right: none;
+    border-left: none;
+    width: max-content;
 
-  span {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    display: block;
-    z-index: 2;
-  }
+    li {
+      margin-bottom: 0.5rem;
+    }
 
-  span::before,
-  span::after {
-    content: "";
-    position: absolute;
-    left: 7px;
-    top: 0;
-    width: 1px;
-    height: 16px;
-    background: #fff;
-    border-radius: 1px;
-  }
-
-  span::before {
-    transform: rotate(45deg);
-  }
-
-  span::after {
-    transform: rotate(-45deg);
-  }
-}
-
-.p-nav__list {
-  list-style: none;
-  padding: 1em 3em 1em 0;
-  margin: 1em 0;
-  border: 1px solid #fff;
-  border-right: none;
-  border-left: none;
-  width: max-content;
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.75rem;
-    transition: color 0.2s;
-
-    &:hover {
+    a {
+      text-decoration: none;
       color: #fff;
-      text-decoration: underline;
+      font-size: 0.75rem;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
     }
   }
 }

@@ -236,30 +236,14 @@ window.addEventListener("mousemove", onTouchMove);
 window.addEventListener("mouseup", onTouchEnd);
 
 // 背景スライドショー
-const images = [
-  "mv_bg.jpg",
-  "mv_bg_02.jpg",
-  "mv_bg_03.jpg",
-  "mv_bg_04.jpg",
-  "mv_bg_05.jpg",
-  "mv_bg_06.jpg",
-  "mv_bg_07.jpg",
-];
-
-const position = ["75%", "40%", "75%", "75%", "50%", "50%", "25%"];
-
-let current = 0;
-const el = document.querySelector(".p-mv");
-
-// 初期背景
-el.style.backgroundImage = `url(/assets/images/${images[current]})`;
-el.style.backgroundPosition = position[current];
+const slides = document.querySelectorAll(".p-mv__slider div");
+let index = 0;
 
 setInterval(() => {
-  current = (current + 1) % images.length;
-  el.style.backgroundImage = `url(/assets/images/${images[current]})`;
-  el.style.backgroundPosition = position[current];
-}, 4000); // 4秒ごとに切り替え
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 4000);
 
 // フェードインアニメーション
 const targets = document.querySelectorAll(".fadein");
@@ -276,3 +260,20 @@ const observer = new IntersectionObserver(
 ); // 10%見えたら発火
 
 targets.forEach((target) => observer.observe(target));
+
+// お知らせバッジの表示制御
+const STORAGE_KEY = "noticeLastReadId";
+
+// ここを変えると「新しいお知らせが来た」ことになる
+const latestNoticeId = "20250906";
+
+const lastReadId = localStorage.getItem(STORAGE_KEY);
+
+if (lastReadId !== latestNoticeId) {
+  noticeBtn.classList.add("unread");
+}
+
+noticeBtn.addEventListener("click", () => {
+  noticeBtn.classList.remove("unread");
+  localStorage.setItem(STORAGE_KEY, latestNoticeId);
+});
