@@ -314,7 +314,7 @@ html {
 }
 .p-member__title {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 16px;
   flex-direction: column-reverse;
@@ -324,6 +324,7 @@ html {
 }
 @media screen and (min-width: 1024px) {
   .p-member__title {
+    align-items: flex-start;
     flex-direction: row;
     top: 20%;
   }
@@ -419,9 +420,9 @@ html {
   margin: 32px auto 0;
 }
 .p-book__mock img {
-  width: calc(100% + 80px);
+  width: calc(100% + 100px);
   position: relative;
-  left: -40px;
+  left: -50px;
   display: block;
 }
 .p-book__mock__notice {
