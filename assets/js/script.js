@@ -215,35 +215,35 @@ window.addEventListener("scroll", () => {
 });
 
 // 画面の向きとサイズに応じた横スクロールの有効化・無効化
-function enableHorizontalScroll() {
-  document.body.style.overflowX = "auto";
-  document.body.style.overflowY = "hidden";
-  document.documentElement.style.overflowX = "auto";
-  document.documentElement.style.overflowY = "hidden";
-}
+// function enableHorizontalScroll() {
+//   document.body.style.overflowX = "auto";
+//   document.body.style.overflowY = "hidden";
+//   document.documentElement.style.overflowX = "auto";
+//   document.documentElement.style.overflowY = "hidden";
+// }
 
-function disableHorizontalScroll() {
-  document.body.style.overflowX = "";
-  document.body.style.overflowY = "";
-  document.documentElement.style.overflowX = "";
-  document.documentElement.style.overflowY = "";
-}
+// function disableHorizontalScroll() {
+//   document.body.style.overflowX = "";
+//   document.body.style.overflowY = "";
+//   document.documentElement.style.overflowX = "";
+//   document.documentElement.style.overflowY = "";
+// }
 
-function handleOrientationOrResize() {
-  const isLandscape =
-    window.matchMedia("(orientation: landscape)").matches ||
-    window.innerWidth > 768;
-  if (isLandscape) {
-    enableHorizontalScroll();
-  } else {
-    disableHorizontalScroll();
-  }
-}
+// function handleOrientationOrResize() {
+//   const isLandscape =
+//     window.matchMedia("(orientation: landscape)").matches ||
+//     window.innerWidth > 768;
+//   if (isLandscape) {
+//     enableHorizontalScroll();
+//   } else {
+//     disableHorizontalScroll();
+//   }
+// }
 
-window.addEventListener("resize", handleOrientationOrResize);
-window.addEventListener("orientationchange", handleOrientationOrResize);
+// window.addEventListener("resize", handleOrientationOrResize);
+// window.addEventListener("orientationchange", handleOrientationOrResize);
 
-handleOrientationOrResize();
+// handleOrientationOrResize();
 
 // 慣性スクロール（Inertia Scroll）を有効にする
 // let isTouching = false;
@@ -336,13 +336,22 @@ const container = document.querySelector(".p-gallery__content");
 const totalImages = 86; // フォルダ内 photo-1.jpg ～ photo-50.jpg
 const displayCount = 10; // 表示する枚数
 
+let sizeSet;
+if (window.innerWidth <= 1024) {
+  // スマホ向け
+  sizeSet = 40;
+} else {
+  // PC向け
+  sizeSet = 1;
+}
+
 const numbers = Array.from({ length: totalImages }, (_, i) => i + 1);
 const randomImages = numbers
   .sort(() => Math.random() - 0.5)
   .slice(0, displayCount);
 
 function placeImage(num, aspectRatio, index) {
-  const size = Math.floor(Math.random() * 40) + 30; // 30〜70 vw
+  const size = Math.floor(Math.random() * sizeSet) + 30; // 30〜70 vw
   const w = size;
   const h = size / aspectRatio;
 

@@ -82,36 +82,36 @@ html {
 }
 
 /* 横向き・PC時は左向きアニメーション */
-@media (min-width: 768px), (orientation: landscape) {
-  .c-scroll {
-    left: auto;
-    right: 24px;
-    bottom: 50%;
-    top: 50%;
-    transform: translateY(50%) rotate(0deg);
-    flex-direction: row;
-  }
+// @media (min-width: 768px), (orientation: landscape) {
+//   .c-scroll {
+//     left: auto;
+//     right: 24px;
+//     bottom: 50%;
+//     top: 50%;
+//     transform: translateY(50%) rotate(0deg);
+//     flex-direction: row;
+//   }
 
-  .c-scroll__line {
-    width: 32px;
-    height: 2px;
-    background: transparent;
-    margin-bottom: 0;
-    margin-right: 6px;
-  }
+//   .c-scroll__line {
+//     width: 32px;
+//     height: 2px;
+//     background: transparent;
+//     margin-bottom: 0;
+//     margin-right: 6px;
+//   }
 
-  .c-scroll__line::before {
-    background: linear-gradient(
-      to left,
-      transparent 0%,
-      #333 60%,
-      transparent 100%
-    );
-    animation: scroll-line-move-left 1.2s linear infinite;
-    background-size: 200% 100%;
-    background-position: 100% 0;
-  }
-}
+//   .c-scroll__line::before {
+//     background: linear-gradient(
+//       to left,
+//       transparent 0%,
+//       #333 60%,
+//       transparent 100%
+//     );
+//     animation: scroll-line-move-left 1.2s linear infinite;
+//     background-size: 200% 100%;
+//     background-position: 100% 0;
+//   }
+// }
 
 @keyframes scroll-line-move-left {
   0% {
@@ -185,7 +185,8 @@ html {
 // レイアウト
 .l-wrap {
   &__inner {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 40px;
     height: 100%;
@@ -315,6 +316,10 @@ html {
     width: 120px;
     display: block;
     margin-left: auto;
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      right: 160px;
+    }
   }
   &__movie {
     width: 100vw; /* 横幅を決めると */
@@ -333,6 +338,16 @@ html {
       margin: auto;
       object-fit: cover;
     }
+    @media screen and (min-width: 1024px) {
+      width: 100%;
+      aspect-ratio: 16 / 9; /* 横長にする */
+      left: 0;
+      top: 0;
+      margin: 40px auto;
+      video {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -345,7 +360,7 @@ html {
   }
   &__title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 16px;
     flex-direction: column-reverse;
@@ -354,14 +369,17 @@ html {
     transform: translateY(-50%);
     @media screen and (min-width: 1024px) {
       flex-direction: row;
+      top: 20%;
     }
     &__name {
       display: block;
       width: 60vw;
+      max-width: 320px;
     }
     &__cross {
       width: 32px;
       height: 32px;
+      align-self: anchor-center;
     }
   }
 }
@@ -372,6 +390,11 @@ html {
     background: url("/assets/images/illust_map.png") no-repeat
       bottom/calc(100% - 40px);
     padding-bottom: 280px;
+    @media screen and (min-width: 1024px) {
+      background: url("/assets/images/illust_map.png") no-repeat
+        calc(100% - 40px) 100% / calc(50vw - 0px);
+      padding-bottom: 80px;
+    }
   }
   &__block {
     display: flex;
@@ -380,6 +403,10 @@ html {
     flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 32px;
+    @media screen and (min-width: 1024px) {
+      width: 35vw;
+      justify-content: flex-end;
+    }
     ul {
       list-style: none;
       padding: 0;
