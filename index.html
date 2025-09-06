@@ -223,7 +223,7 @@
                             <li><a href="#intro">02 - はじめに</a></li>
                             <li><a href="#member">03 - プロジェクトメンバー</a></li>
                             <li><a href="#place">04 - 撮影地</a></li>
-                            <li><a href="#photobook">05 - 写真集</a></li>
+                            <li><a href="#book">05 - 写真集</a></li>
                         </ul>
                         <a href="#" class="p-nav__sns-link">
                             <img src="/assets/images/ic_instagram.svg" alt="">Instagram（写真部FOCUS）
@@ -292,7 +292,7 @@
                 <h2 class="p-member__title">
                     <div class="p-member__title__block">
                         <img src="/assets/images/name_01.svg" alt="写真家 浅田政志" class="p-member__title__name fadein">
-                        <div id="commentBtn" tabindex="0" role="button" aria-label="コメントを開く" class="fadein">
+                        <div id="commentBtn" tabindex="0" role="button" aria-label="コメントを開く" class="fadein c-modalbtn">
                             <img src="/assets/images/ic_plus.svg" alt="">コメント
                         </div>
                     </div>
@@ -319,7 +319,7 @@
             </div>
         </div>
 
-        <div class="p-place l-wrap l-wrap u-bg--blue" id="place">
+        <div class="p-place l-wrap u-bg--blue" id="place">
             <div class="l-wrap__inner">
                 <div class="c-index">03. 撮影地</div>
                 <h2 class="p-place__title fadein">
@@ -360,6 +360,54 @@
                 </div>
             </div>
         </div>
+
+        <div class="p-gallery l-wrap">
+            <div class="l-wrap__inner">
+                <div class="p-gallery__content"></div>
+            </div>
+        </div>
+
+
+        <div class="p-book l-wrap" id="book">
+            <div class="l-wrap__inner">
+                <div class="c-index">04. 写真集</div>
+                <h2 class="p-book__title fadein">
+                    <span>写真集</span>能登、ひとおし。<b>9/14 発売予定</b>
+                </h2>
+                <div class="p-book__desc">
+                    <p class="fadein">撮影した写真を、一冊の写真集にまとめました。忘れてはならない現実と、支え合う人々の温もりが詰まっています。</p>
+                    <p class="fadein u-txt-small">3,300円（税込）｜72P｜B5横｜フルカラー</p>
+                </div>
+                <div class="p-book__shoplist">
+                    <div id="shopBtn" tabindex="0" role="button" aria-label="販売店一覧を開く" class="fadein c-modalbtn">
+                        <img src="/assets/images/ic_plus.svg" alt="">販売店一覧
+                    </div>
+                </div>
+                <div class="p-book__mock">
+                    <div class="p-book__mock__notice">
+                        写真集の売上は、印刷費など実費を除き全額を能登復興支援に寄付します。
+                    </div>
+                    <img src="/assets/images/mockup.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="p-nav__modal" id="shopModal" style="display: none;">
+                <div class="p-nav__modal-content">
+                    <button class="p-nav__close" id="closeShopModalBtn" aria-label="閉じる">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="p-nav__modal-content__desc">
+                        <b>販売店一覧</b>
+                        <ul class="p-nav__list">
+                            <li>- <a href="#">オンラインショップ</a></li>
+                            <li>- <a href="#">フジカラー北陸</a></li>
+                            <li>- <a href="#">写真の文明堂</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script src="/assets/js/script.js"></script>
 </body>

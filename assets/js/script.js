@@ -150,6 +150,36 @@ closeCommentModalBtn.addEventListener("click", () => {
   );
 });
 
+// ショップリストモーダルの開閉
+const shopBtn = document.getElementById("shopBtn");
+const shopModal = document.getElementById("shopModal");
+const closeShopModalBtn = document.getElementById("closeShopModalBtn");
+
+shopBtn.addEventListener("click", () => {
+  shopModal.style.display = "block";
+  // hide クラスを付与してフェードアウト開始
+  shopModal.classList.remove("hide");
+  shopModal.classList.add("show");
+});
+
+closeShopModalBtn.addEventListener("click", () => {
+  // hide クラスを付与してフェードアウト開始
+  shopModal.classList.remove("show");
+  shopModal.classList.add("hide");
+
+  // アニメーション終了後に非表示化
+  shopModal.addEventListener(
+    "animationend",
+    () => {
+      if (shopModal.classList.contains("hide")) {
+        shopModal.style.display = "none";
+        shopModal.classList.remove("hide");
+      }
+    },
+    { once: true }
+  );
+});
+
 // スクロールアニメーションの表示制御
 const scrollEl = document.querySelector(".c-scroll");
 
@@ -277,3 +307,71 @@ noticeBtn.addEventListener("click", () => {
   noticeBtn.classList.remove("unread");
   localStorage.setItem(STORAGE_KEY, latestNoticeId);
 });
+
+// 撮影地の写真をランダムに20枚表示
+const container = document.querySelector(".p-gallery__content");
+const totalImages = 86; // フォルダ内 photo-1.jpg ～ photo-50.jpg
+const displayCount = 10; // 表示する枚数
+
+const numbers = Array.from({ length: totalImages }, (_, i) => i + 1);
+const randomImages = numbers
+  .sort(() => Math.random() - 0.5)
+  .slice(0, displayCount);
+
+function placeImage(num, aspectRatio, index) {
+  const size = Math.floor(Math.random() * 40) + 30; // 30〜70 vw
+  const w = size;
+  const h = size / aspectRatio;
+
+  // 縦位置を等間隔に配置
+  const sectionHeight = 200 / displayCount; // vh単位で区切り
+  const baseY = sectionHeight * index;
+  const y = baseY + Math.random() * (sectionHeight * 0.5); // ずらし幅あり
+
+  // 横位置はランダム
+  const xMin = -10; // 左に最大10vwはみ出し
+  const xMax = 100 - w * 0.7; // 右にも30%くらいはみ出し許容
+  const x = xMin + Math.random() * (xMax - xMin);
+
+  const div = document.createElement("div");
+  div.className = "parallax";
+  div.style.width = w + "vw";
+  div.style.left = x + "vw";
+  div.style.top = y + "vh";
+  div.style.setProperty("--rand-rot", Math.random().toFixed(2));
+  div.innerHTML = `<img src="/assets/images/photo/photo-${num}.jpg" alt="photo ${num}">`;
+  container.appendChild(div);
+}
+
+// 縦横比を取得して配置
+randomImages.forEach((num, index) => {
+  const img = new Image();
+  img.src = `/assets/images/photo/photo-${num}.jpg`;
+  img.onload = () => {
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    placeImage(num, aspectRatio, index);
+  };
+});
+
+// フェードイン
+const gallery = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+const mo = new MutationObserver((mutations) => {
+  mutations.forEach((m) => {
+    m.addedNodes.forEach((node) => {
+      if (node.classList?.contains("parallax")) {
+        gallery.observe(node);
+      }
+    });
+  });
+});
+mo.observe(container, { childList: true });
