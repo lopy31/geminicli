@@ -403,7 +403,7 @@ html {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: 32px;
+    margin-bottom: 52px;
     @media screen and (min-width: 1024px) {
       width: 35vw;
       justify-content: flex-end;
@@ -461,6 +461,7 @@ html {
 // 写真集
 .p-book {
   background-image: linear-gradient(90deg, #cecece, #efefef);
+  overflow: hidden;
   &__mock {
     position: relative;
     width: 100%;
@@ -488,86 +489,110 @@ html {
 }
 
 // ナビゲーション
-.p-nav {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  z-index: 1100;
-}
 
-.p-nav__label {
-  color: $mainColor;
-  font-size: 0.875rem;
-}
-
-.p-nav__hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 8px;
-}
-
-.p-nav__bar {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: $mainColor;
-  border-radius: 2px;
-  transition: background 0.2s;
-}
-
-.p-nav__modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+.p-notice-slider {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-}
-.p-nav__modal-content__desc {
-  width: max-content;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  padding: 20px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin: 0;
   position: relative;
   top: 40%;
-  transform: translateY(-50%) translateX(-50%);
-  left: 50%;
+  transform: translateY(-50%);
 }
 
-.p-nav__sns-link {
-  color: #fff;
+.p-notice-slider__pager-dot {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 3px 16px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #005fa0;
+  appearance: none;
+  margin: 0 6px;
+}
+
+.p-notice-slider__pager-dot.is-active {
+  background: #fff;
+}
+
+.p-notice-slider__inner {
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
-  text-decoration: none;
-  img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-  }
+  gap: 12px;
 }
 
-.p-nav__modal-content {
-  background: rgba(0, 95, 160, 0.92);
-  color: #fff;
-  padding: 2em 2.5rem;
-  min-width: 220px;
-  width: 100vw;
-  height: 100dvh;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-  position: relative;
-  animation: fadeIn 0.2s;
-  box-sizing: border-box;
+.p-notice-slider__prev,
+.p-notice-slider__next {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.p-notice-slider__prev:hover,
+.p-notice-slider__next:hover {
+  background: #e0e0e0;
+}
+
+.p-notice-slider__prev img,
+.p-notice-slider__next img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.p-notice-slider__content {
+  min-width: 220px;
+  max-width: 320px;
+  overflow: hidden;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-notice-slider__item {
+  display: none;
+  width: 100%;
+  transition: opacity 0.3s;
+}
+
+.p-notice-slider__item.active {
+  display: block;
+  opacity: 1;
+}
+
+.p-notice-slider__date {
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.p-notice-slider__title {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.p-notice-slider__desc {
+  font-size: 0.875em;
+  line-height: 1.6;
+  font-weight: normal;
+  margin-top: 16px;
+}
+
 #navModal,
 #noticeModal,
 #commentModal,
@@ -588,7 +613,102 @@ html {
   animation: fadeOut 0.3s forwards;
 }
 .p-nav {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  z-index: 1100;
+  &__sns-link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    text-decoration: none;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+  }
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    &-content {
+      background: rgba(0, 95, 160, 0.92);
+      color: #fff;
+      padding: 2em 2.5rem;
+      min-width: 220px;
+      width: 100vw;
+      height: 100dvh;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+      position: relative;
+      animation: fadeIn 0.2s;
+      box-sizing: border-box;
+      &__desc {
+        width: max-content;
+        position: relative;
+        top: 40%;
+        transform: translateY(-50%) translateX(-50%);
+        left: 50%;
+      }
+      &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        position: absolute;
+        flex-direction: column;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        img {
+          width: 70vw;
+        }
+        small {
+          font-size: 0.75rem;
+          display: block;
+          margin-top: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  &__hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 8px;
+  }
+  &__label {
+    color: $mainColor;
+    font-size: 0.875rem;
+  }
+  &__bar {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: $mainColor;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
   &__notice {
+    font-size: 0.875rem;
+    color: #005fa0;
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -750,6 +870,8 @@ html {
         width: 100px;
         display: block;
         margin-bottom: 8px;
+        position: relative;
+        left: -8px;
       }
       b {
         font-weight: bold;

@@ -318,7 +318,7 @@ targets.forEach((target) => observer.observe(target));
 const STORAGE_KEY = "noticeLastReadId";
 
 // ここを変えると「新しいお知らせが来た」ことになる
-const latestNoticeId = "20250906";
+const latestNoticeId = "202509061715"; // YYYYMMDDHHmm
 
 const lastReadId = localStorage.getItem(STORAGE_KEY);
 
