@@ -3,19 +3,11 @@ const hamburgerBtn = document.getElementById("hamburgerBtn");
 const navModal = document.getElementById("navModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 
-hamburgerBtn.addEventListener("click", () => {
-  navModal.style.display = "block";
-  // hide クラスを付与してフェードアウト開始
-  navModal.classList.remove("hide");
-  navModal.classList.add("show");
-});
-
-closeModalBtn.addEventListener("click", () => {
-  // hide クラスを付与してフェードアウト開始
+// モーダルを閉じる処理
+function closeModal() {
   navModal.classList.remove("show");
   navModal.classList.add("hide");
 
-  // アニメーション終了後に非表示化
   navModal.addEventListener(
     "animationend",
     () => {
@@ -26,6 +18,37 @@ closeModalBtn.addEventListener("click", () => {
     },
     { once: true }
   );
+}
+
+// モーダルを開く
+hamburgerBtn.addEventListener("click", () => {
+  navModal.style.display = "block";
+  navModal.classList.remove("hide");
+  navModal.classList.add("show");
+});
+
+// 閉じるボタン
+closeModalBtn.addEventListener("click", closeModal);
+
+// モーダル内のアンカーリンクをクリックしたら閉じつつスクロール
+navModal.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // デフォルトの即時ジャンプを止める
+
+    const targetId = link.getAttribute("href");
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      const offset = 0; // 固定ヘッダーの高さがあれば調整
+      window.scrollTo({
+        top: top - offset,
+        behavior: "smooth",
+      });
+    }
+
+    closeModal(); // スクロール開始と同時にモーダルを閉じる
+  });
 });
 
 // お知らせモーダルの開閉
