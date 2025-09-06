@@ -193,47 +193,47 @@ window.addEventListener("orientationchange", handleOrientationOrResize);
 handleOrientationOrResize();
 
 // 慣性スクロール（Inertia Scroll）を有効にする
-let isTouching = false;
-let lastX = 0;
-let velocity = 0;
-let rafId = null;
+// let isTouching = false;
+// let lastX = 0;
+// let velocity = 0;
+// let rafId = null;
 
-function onTouchStart(e) {
-  isTouching = true;
-  velocity = 0;
-  lastX = e.touches ? e.touches[0].clientX : e.clientX;
-  if (rafId) {
-    cancelAnimationFrame(rafId);
-    rafId = null;
-  }
-}
+// function onTouchStart(e) {
+//   isTouching = true;
+//   velocity = 0;
+//   lastX = e.touches ? e.touches[0].clientX : e.clientX;
+//   if (rafId) {
+//     cancelAnimationFrame(rafId);
+//     rafId = null;
+//   }
+// }
 
-function onTouchMove(e) {
-  if (!isTouching) return;
-  const currentX = e.touches ? e.touches[0].clientX : e.clientX;
-  velocity = currentX - lastX;
-  window.scrollBy(-velocity, 0);
-  lastX = currentX;
-}
+// function onTouchMove(e) {
+//   if (!isTouching) return;
+//   const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+//   velocity = currentX - lastX;
+//   window.scrollBy(-velocity, 0);
+//   lastX = currentX;
+// }
 
-function onTouchEnd() {
-  isTouching = false;
-  function inertia() {
-    if (Math.abs(velocity) < 0.5) return;
-    window.scrollBy(-velocity, 0);
-    velocity *= 0.95;
-    rafId = requestAnimationFrame(inertia);
-  }
-  inertia();
-}
+// function onTouchEnd() {
+//   isTouching = false;
+//   function inertia() {
+//     if (Math.abs(velocity) < 0.5) return;
+//     window.scrollBy(-velocity, 0);
+//     velocity *= 0.95;
+//     rafId = requestAnimationFrame(inertia);
+//   }
+//   inertia();
+// }
 
-window.addEventListener("touchstart", onTouchStart, { passive: false });
-window.addEventListener("touchmove", onTouchMove, { passive: false });
-window.addEventListener("touchend", onTouchEnd);
+// window.addEventListener("touchstart", onTouchStart, { passive: false });
+// window.addEventListener("touchmove", onTouchMove, { passive: false });
+// window.addEventListener("touchend", onTouchEnd);
 
-window.addEventListener("mousedown", onTouchStart);
-window.addEventListener("mousemove", onTouchMove);
-window.addEventListener("mouseup", onTouchEnd);
+// window.addEventListener("mousedown", onTouchStart);
+// window.addEventListener("mousemove", onTouchMove);
+// window.addEventListener("mouseup", onTouchEnd);
 
 // 背景スライドショー
 const slides = document.querySelectorAll(".p-mv__slider div");
