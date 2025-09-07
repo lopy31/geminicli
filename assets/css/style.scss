@@ -196,6 +196,7 @@ html {
       font-size: 2rem;
       font-feature-settings: "palt";
       letter-spacing: 1px;
+      font-weight: 800;
       span {
         display: block;
         font-size: 1rem;
@@ -354,9 +355,9 @@ html {
 // プロジェクトメンバー
 .p-member {
   height: 100dvh;
-  background: url("/assets/images/member_sp.jpg") no-repeat center / cover;
+  background: url("../images/member_sp.jpg") no-repeat center / cover;
   @media screen and (min-width: 1024px) {
-    background: url("/assets/images/member.jpg") no-repeat center / cover;
+    background: url("../images/member.jpg") no-repeat center / cover;
   }
   &__title {
     display: flex;
@@ -388,12 +389,12 @@ html {
 // 撮影地
 .p-place {
   .l-wrap__inner {
-    background: url("/assets/images/illust_map.png") no-repeat
+    background: url("../images/illust_map.png") no-repeat
       bottom/calc(100% - 40px);
     padding-bottom: 280px;
     @media screen and (min-width: 1024px) {
-      background: url("/assets/images/illust_map.png") no-repeat
-        calc(100% - 40px) 100% / calc(50vw - 0px);
+      background: url("../images/illust_map.png") no-repeat calc(100% - 40px)
+        100% / calc(50vw - 0px);
       padding-bottom: 80px;
     }
   }
@@ -445,7 +446,7 @@ html {
   width: 100%;
   height: 200vh; /* 縦を長くしてキャンバス状に */
   overflow: hidden;
-  background: url(/assets/images/pt.jpg) repeat;
+  background: url(../images/pt.jpg) repeat;
   background-size: 20%;
   &__content {
     position: relative;
@@ -484,6 +485,19 @@ html {
       width: 216px;
       z-index: 2;
       font-weight: bold;
+    }
+  }
+  &__shoplist {
+    #shopBtn {
+      &::after {
+        display: inline-block;
+        content: "※順次追加予定";
+        font-size: 0.75rem;
+        margin-left: 4px;
+        position: absolute;
+        right: -100px;
+        color: #e01818;
+      }
     }
   }
 }
@@ -743,8 +757,7 @@ html {
       top: 0;
       width: 24px;
       height: 24px;
-      background: url(/assets/images/quote_in.svg) no-repeat left center /
-        contain;
+      background: url(../images/quote_in.svg) no-repeat left center / contain;
     }
     &::after {
       position: absolute;
@@ -753,8 +766,7 @@ html {
       bottom: 0;
       width: 24px;
       height: 24px;
-      background: url(/assets/images/quote_out.svg) no-repeat left center /
-        contain;
+      background: url(../images/quote_out.svg) no-repeat left center / contain;
     }
   }
   &__close {

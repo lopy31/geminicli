@@ -154,6 +154,7 @@ html {
   font-size: 2rem;
   font-feature-settings: "palt";
   letter-spacing: 1px;
+  font-weight: 800;
 }
 .l-wrap__inner h2 span {
   display: block;
@@ -305,11 +306,11 @@ html {
 
 .p-member {
   height: 100dvh;
-  background: url("/assets/images/member_sp.jpg") no-repeat center/cover;
+  background: url("../images/member_sp.jpg") no-repeat center/cover;
 }
 @media screen and (min-width: 1024px) {
   .p-member {
-    background: url("/assets/images/member.jpg") no-repeat center/cover;
+    background: url("../images/member.jpg") no-repeat center/cover;
   }
 }
 .p-member__title {
@@ -341,12 +342,12 @@ html {
 }
 
 .p-place .l-wrap__inner {
-  background: url("/assets/images/illust_map.png") no-repeat bottom/calc(100% - 40px);
+  background: url("../images/illust_map.png") no-repeat bottom/calc(100% - 40px);
   padding-bottom: 280px;
 }
 @media screen and (min-width: 1024px) {
   .p-place .l-wrap__inner {
-    background: url("/assets/images/illust_map.png") no-repeat calc(100% - 40px) 100%/calc(50vw - 0px);
+    background: url("../images/illust_map.png") no-repeat calc(100% - 40px) 100%/calc(50vw - 0px);
     padding-bottom: 80px;
   }
 }
@@ -398,7 +399,7 @@ html {
   width: 100%;
   height: 200vh; /* 縦を長くしてキャンバス状に */
   overflow: hidden;
-  background: url(/assets/images/pt.jpg) repeat;
+  background: url(../images/pt.jpg) repeat;
   background-size: 20%;
 }
 .p-gallery__content {
@@ -438,6 +439,15 @@ html {
   width: 216px;
   z-index: 2;
   font-weight: bold;
+}
+.p-book__shoplist #shopBtn::after {
+  display: inline-block;
+  content: "※順次追加予定";
+  font-size: 0.75rem;
+  margin-left: 4px;
+  position: absolute;
+  right: -100px;
+  color: #e01818;
 }
 
 .p-notice-slider {
@@ -701,7 +711,7 @@ html {
   top: 0;
   width: 24px;
   height: 24px;
-  background: url(/assets/images/quote_in.svg) no-repeat left center/contain;
+  background: url(../images/quote_in.svg) no-repeat left center/contain;
 }
 .p-nav__modal-content blockquote::after {
   position: absolute;
@@ -710,7 +720,7 @@ html {
   bottom: 0;
   width: 24px;
   height: 24px;
-  background: url(/assets/images/quote_out.svg) no-repeat left center/contain;
+  background: url(../images/quote_out.svg) no-repeat left center/contain;
 }
 .p-nav__close {
   position: absolute;

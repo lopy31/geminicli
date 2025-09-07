@@ -371,14 +371,14 @@ function placeImage(num, aspectRatio, index) {
   div.style.left = x + "vw";
   div.style.top = y + "vh";
   div.style.setProperty("--rand-rot", Math.random().toFixed(2));
-  div.innerHTML = `<img src="/assets/images/photo/photo-${num}.jpg" alt="photo ${num}">`;
+  div.innerHTML = `<img src="assets/images/photo/photo-${num}.jpg" alt="photo ${num}">`;
   container.appendChild(div);
 }
 
 // 縦横比を取得して配置
 randomImages.forEach((num, index) => {
   const img = new Image();
-  img.src = `/assets/images/photo/photo-${num}.jpg`;
+  img.src = `assets/images/photo/photo-${num}.jpg`;
   img.onload = () => {
     const aspectRatio = img.naturalWidth / img.naturalHeight;
     placeImage(num, aspectRatio, index);
