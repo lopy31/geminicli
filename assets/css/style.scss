@@ -257,11 +257,19 @@ html {
   }
 }
 .u-bg--photo {
-  background: url("../images/ex_bg.jpg") no-repeat center / cover;
-  @supports (-webkit-overflow-scrolling: touch) {
-    background-attachment: scroll;
-    background-position: center;
-    transform: translateZ(0);
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-image: url("../images/ex_bg.jpg");
+    background-size: cover;
   }
 }
 .u-txt-gray {
