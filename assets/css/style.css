@@ -105,6 +105,15 @@ html {
   background: #fff;
   color: #005fa0;
 }
+.c-modalbtn--white {
+  color: #fff;
+  border: 1px solid #fff;
+  margin-top: 8px;
+}
+.c-modalbtn--white:hover {
+  background: #005fa0;
+  color: #fff;
+}
 
 .u-bg--blue {
   background: #005fa0;
@@ -554,6 +563,10 @@ html {
   font-weight: normal;
   margin-top: 16px;
 }
+.p-notice-slider__desc a {
+  color: #fff;
+  text-decoration: underline;
+}
 
 #navModal,
 #noticeModal,
@@ -910,4 +923,62 @@ html {
 .parallax.show img {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* スクロールリンク */
+.scroll-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-link__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  font-feature-settings: "palt";
+}
+
+.scroll-link__button b {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.scroll-link__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/badge.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotateBadge 9s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateBadge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

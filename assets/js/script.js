@@ -174,15 +174,18 @@ closeCommentModalBtn.addEventListener("click", () => {
 });
 
 // ショップリストモーダルの開閉
-const shopBtn = document.getElementById("shopBtn");
 const shopModal = document.getElementById("shopModal");
 const closeShopModalBtn = document.getElementById("closeShopModalBtn");
 
-shopBtn.addEventListener("click", () => {
-  shopModal.style.display = "block";
-  // hide クラスを付与してフェードアウト開始
-  shopModal.classList.remove("hide");
-  shopModal.classList.add("show");
+const shopBtns = document.querySelectorAll("#shopBtn, #shopBtn02, #shopBtn03");
+
+shopBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    shopModal.style.display = "block";
+    // hide クラスを付与してフェードアウト開始
+    shopModal.classList.remove("hide");
+    shopModal.classList.add("show");
+  });
 });
 
 closeShopModalBtn.addEventListener("click", () => {
@@ -211,6 +214,25 @@ window.addEventListener("scroll", () => {
     scrollEl.classList.remove("is-hidden"); // 表示
   } else {
     scrollEl.classList.add("is-hidden"); // フェードアウト
+  }
+});
+
+// スクロールトップリンクの表示制御
+document.addEventListener("scroll", () => {
+  const scrollLink = document.getElementById("scrollLink");
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollPosition = window.innerHeight + window.scrollY;
+
+  if (window.scrollY >= window.innerHeight && scrollPosition < scrollHeight) {
+    scrollLink.style.display = "block";
+    setTimeout(() => {
+      scrollLink.style.opacity = "1";
+    }, 500);
+  } else {
+    scrollLink.style.opacity = "0";
+    setTimeout(() => {
+      scrollLink.style.display = "none";
+    }, 500);
   }
 });
 
@@ -314,22 +336,22 @@ const observer = new IntersectionObserver(
 
 targets.forEach((target) => observer.observe(target));
 
-// お知らせバッジの表示制御
-const STORAGE_KEY = "noticeLastReadId";
-
 // ここを変えると「新しいお知らせが来た」ことになる
-const latestNoticeId = "202509061715"; // YYYYMMDDHHmm
+// const STORAGE_KEY = "noticeLastReadId";
+// const latestNoticeId = "202509061715"; // YYYYMMDDHHmm
+// const lastReadId = localStorage.getItem(STORAGE_KEY);
 
-const lastReadId = localStorage.getItem(STORAGE_KEY);
+// if (lastReadId !== latestNoticeId) {
+//   noticeBtn.classList.add("unread");
+// }
 
-if (lastReadId !== latestNoticeId) {
-  noticeBtn.classList.add("unread");
-}
+// noticeBtn.addEventListener("click", () => {
+//   noticeBtn.classList.remove("unread");
+//   localStorage.setItem(STORAGE_KEY, latestNoticeId);
+// });
 
-noticeBtn.addEventListener("click", () => {
-  noticeBtn.classList.remove("unread");
-  localStorage.setItem(STORAGE_KEY, latestNoticeId);
-});
+// ローカルストレージをクリア
+localStorage.clear();
 
 // 撮影地の写真をランダムに20枚表示
 const container = document.querySelector(".p-gallery__content");

@@ -2,6 +2,16 @@
 <html lang="ja">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1547621QR6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1547621QR6');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>能登、ひとおし。</title>
@@ -14,6 +24,8 @@
     <meta name="author" content="能登、ひとおし。プロジェクト">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="icon" href="assets/images/favicon.ico">
+
+    <meta name="bobots" content="noindex, nofollow">
 </head>
 
 <body>
@@ -22,8 +34,15 @@
             <span class="c-scroll__line"></span>
             <span class="c-scroll__text">SCROLL</span>
         </div>
+        <div class="scroll-link" id="scrollLink">
+            <a href="#book" class="scroll-link__button">
+                <b>写真集</b>好評発売中！
+            </a>
+        </div>
+
         <div class="p-nav">
-            <span class="p-nav__notice" id="noticeBtn" tabindex="0" role="button" aria-label="お知らせを開く">お知らせ</span>
+            <span class="p-nav__notice unread" id="noticeBtn" tabindex="0" role="button"
+                aria-label="お知らせを開く">お知らせ</span>
             <div class="p-nav__modal" id="noticeModal" style="display: none;">
                 <div class="p-nav__modal-content">
                     <button class="p-nav__close" id="closeNoticeModalBtn" aria-label="閉じる">
@@ -35,6 +54,47 @@
                                 <img src="assets/images/ic_arrow-left.svg" alt="前へ" />
                             </button>
                             <div class="p-notice-slider__content">
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.10.28</div>
+                                    <div class="p-notice-slider__title">写真集の販売店追加のお知らせ</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        新たに「<a href="https://okunoto-archive.jp/" target="_blank">スズレコードセンター（珠洲）</a>」「<a
+                                            href="https://saigaifm.hp.peraichi.com/machino/"
+                                            target="_blank">まちのラジオ（輪島）</a>」で写真集をお求めいただけるようになりました。<br>取扱店一覧は随時更新しておりますので、ぜひご覧ください。
+                                    </div>
+                                </div>
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.10.9</div>
+                                    <div class="p-notice-slider__title">写真集の販売店追加のお知らせ</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        新たに「<a href="https://www.instagram.com/okuyama_meimokuten/"
+                                            target="_blank">奥山銘木店（三重）</a>」「<a
+                                            href="https://www.instagram.com/hosi.bosi.coffee/" target="_blank">Hosibosi
+                                            coffee（輪島）</a>」で写真集をお求めいただけるようになりました。<br>取扱店一覧は随時更新しておりますので、ぜひご覧ください。
+                                    </div>
+                                </div>
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.10.6</div>
+                                    <div class="p-notice-slider__title">写真集の販売店追加のお知らせ</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        新たに「<a href="https://aoyamabc.jp/"
+                                            target="_blank">青山ブックセンター（東京）</a>」で写真集をお求めいただけるようになりました。<br>取扱店一覧は随時更新しておりますので、ぜひご覧ください。
+                                    </div>
+                                </div>
+                                <div class="p-notice-slider__item">
+                                    <div class="p-notice-slider__date">2025.10.2</div>
+                                    <div class="p-notice-slider__title">写真集の販売店追加のお知らせ</div>
+                                    <hr class="p-notice-slider__divider">
+                                    <div class="p-notice-slider__desc">
+                                        新たに「<a href="https://www.instagram.com/book_iroha/"
+                                            target="_blank">いろは書店（珠洲市）</a>」「<a
+                                            href="https://store.tsite.jp/nagoya-minato/" target="_blank">名古屋みなと
+                                            蔦屋書店</a>」で写真集をお求めいただけるようになりました。<br>取扱店一覧は随時更新しておりますので、ぜひご覧ください。
+                                    </div>
+                                </div>
                                 <div class="p-notice-slider__item">
                                     <div class="p-notice-slider__date">2025.9.13</div>
                                     <div class="p-notice-slider__title">写真集の販売店追加のお知らせ</div>
@@ -83,6 +143,12 @@
                             <li><a href="#member">02 - プロジェクトメンバー</a></li>
                             <li><a href="#place">03 - 撮影地</a></li>
                             <li><a href="#book">04 - 写真集</a></li>
+                            <li class="fadein u-exlink">
+                                <div id="shopBtn03" tabindex="0" role="button" aria-label="販売店一覧を開く"
+                                    class="fadein c-modalbtn c-modalbtn--white show">
+                                    <img src="assets/images/ic_plus_w.svg" alt="">写真集の購入はこちら
+                                </div>
+                            </li>
                         </ul>
                         <a href="https://www.instagram.com/focus.kanazawa/" target="_blank" class="p-nav__sns-link">
                             <img src="assets/images/ic_instagram.svg" alt="">Instagram（写真部FOCUS）
@@ -231,7 +297,7 @@
             <div class="l-wrap__inner">
                 <div class="c-index">04. 写真集</div>
                 <h2 class="p-book__title fadein">
-                    <span>写真集</span>能登、ひとおし。<b>9/13（土）発売！</b>
+                    <span>写真集</span>能登、ひとおし。<b>好評発売中！</b>
                 </h2>
                 <div class="p-book__desc">
                     <p class="fadein">撮影した写真を、一冊の写真集にまとめました。忘れてはならない現実と、支え合う人々の温もりが詰まっています。</p>
@@ -258,9 +324,11 @@
                     <div class="p-nav__modal-content__desc">
                         <b>写真集｜販売店一覧</b>
                         <ul class="p-nav__list">
-                            <li>- <a href="https://masshi-kanazawa.stores.jp/items/68b6b9579797c73251a91309"
-                                    target="_blank">オンラインショップ MASSHI STORE<img src="assets/images/ic_link.svg"
-                                        alt=""></a></li>
+                            <li class="p-nav__list--pickup">
+                                <a href="https://masshi-kanazawa.stores.jp/?category_id=68f8431f7e95400048e569ea"
+                                    target="_blank">オンラインショップ MASSHI STORE<img src="assets/images/ic_link_y.svg" alt="">
+                                </a>
+                            </li>
                             <li>- <a href="https://maps.app.goo.gl/YiJsK6EqkgKQcDJs5" target="_blank">フジカラー北陸（X STATION）
                                     <img src="assets/images/ic_link.svg" alt=""></a></li>
                             <li>- <a href="https://maps.app.goo.gl/UXcJwndyhNJLuFs38" target="_blank">写真の文明堂 <img
@@ -270,6 +338,20 @@
                             <li>- <a href="https://www.utsunomiya.co.jp/store/" target="_blank">うつのみや書店全店 <img
                                         src="assets/images/ic_link.svg" alt=""></a></li>
                             <li>- <a href="https://3bun-1.com/" target="_blank">1/3 HAMBURGER FACTORY 全店 <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://www.instagram.com/book_iroha/" target="_blank">いろは書店（珠洲市） <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://okunoto-archive.jp/" target="_blank">スズレコードセンター（珠洲市） <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://store.tsite.jp/nagoya-minato/" target="_blank">名古屋みなと 蔦屋書店 <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://aoyamabc.jp/" target="_blank">青山ブックセンター（東京都） <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://www.instagram.com/okuyama_meimokuten/" target="_blank">奥山銘木店（三重） <img
+                                        src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://www.instagram.com/hosi.bosi.coffee/" target="_blank">Hosibosi
+                                    coffee（輪島市） <img src="assets/images/ic_link.svg" alt=""></a></li>
+                            <li>- <a href="https://saigaifm.hp.peraichi.com/machino/" target="_blank">まちのラジオ（輪島市） <img
                                         src="assets/images/ic_link.svg" alt=""></a></li>
                         </ul>
                     </div>
@@ -288,6 +370,13 @@
                             <li class="fadein"><a href="#member">02 - プロジェクトメンバー</a></li>
                             <li class="fadein"><a href="#place">03 - 撮影地</a></li>
                             <li class="fadein"><a href="#book">04 - 写真集</a></li>
+
+                            <li class="fadein u-exlink">
+                                <div id="shopBtn02" tabindex="0" role="button" aria-label="販売店一覧を開く"
+                                    class="fadein c-modalbtn c-modalbtn--white show">
+                                    <img src="assets/images/ic_plus_w.svg" alt="">写真集の購入はこちら
+                                </div>
+                            </li>
                         </ul>
                         <a href="https://www.instagram.com/focus.kanazawa/" target="_blank"
                             class="p-nav__sns-link fadein">
