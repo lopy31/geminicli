@@ -216,7 +216,13 @@ html {
 
 .u-bg--photo {
   background: url("../images/ex_bg.jpg") no-repeat center/cover;
-  background-attachment: fixed;
+}
+@supports (-webkit-overflow-scrolling: touch) {
+  .u-bg--photo {
+    background-attachment: scroll;
+    background-position: center;
+    transform: translateZ(0);
+  }
 }
 
 .u-txt-gray {
