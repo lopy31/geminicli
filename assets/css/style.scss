@@ -709,7 +709,7 @@ html {
       word-break: keep-all;
       b {
         color: $mainColor;
-        font-size: 2.5rem;
+        font-size: 2.25rem;
         font-weight: bold;
         line-height: 1;
         font-family: "Century Gothic", Futura, "Helvetica Neue", Helvetica,
@@ -757,7 +757,7 @@ html {
       background-color: $mainColor;
       position: relative;
       box-sizing: border-box;
-      padding: 4.5rem 1.25rem 1.25rem;
+      padding: 4rem 1.25rem 1.25rem;
     }
     &__desc {
       em {
