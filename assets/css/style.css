@@ -374,6 +374,7 @@ html {
 
 .p-intro {
   position: relative;
+  background-color: #fff;
 }
 .p-intro img {
   width: 120px;
