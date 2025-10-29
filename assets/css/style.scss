@@ -706,6 +706,7 @@ html {
       justify-content: center;
       text-align: center;
       font-feature-settings: "palt";
+      word-break: keep-all;
       b {
         color: $mainColor;
         font-size: 2.5rem;
@@ -719,14 +720,17 @@ html {
         font-size: 0.75rem;
         line-height: 1;
         letter-spacing: 2px;
+        font-family: "Century Gothic", Futura, "Helvetica Neue", Helvetica;
       }
       p {
         color: #ffeb3b !important;
         position: absolute;
         top: 4.5rem;
         line-height: 1.5;
+        font-weight: bold;
         margin: 0;
         font-size: 0.75rem;
+        font-family: "Century Gothic", Futura, "Helvetica Neue", Helvetica;
       }
       &--double {
         b {

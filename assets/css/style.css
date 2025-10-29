@@ -660,6 +660,7 @@ html {
   justify-content: center;
   text-align: center;
   font-feature-settings: "palt";
+  word-break: keep-all;
 }
 .p-ex__event__date b {
   color: #005fa0;
@@ -673,14 +674,17 @@ html {
   font-size: 0.75rem;
   line-height: 1;
   letter-spacing: 2px;
+  font-family: "Century Gothic", Futura, "Helvetica Neue", Helvetica;
 }
 .p-ex__event__date p {
   color: #ffeb3b !important;
   position: absolute;
   top: 4.5rem;
   line-height: 1.5;
+  font-weight: bold;
   margin: 0;
   font-size: 0.75rem;
+  font-family: "Century Gothic", Futura, "Helvetica Neue", Helvetica;
 }
 .p-ex__event__date--double b {
   font-size: 1.4rem;
