@@ -71,6 +71,93 @@ html {
     background-position: 0 -100%;
   }
 }
+.c-promotion {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  background-color: #005fa0;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  width: 50vw;
+  max-width: 280px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 0.25rem;
+}
+@media screen and (min-width: 1024px) {
+  .c-promotion {
+    bottom: 2rem;
+    right: 2rem;
+    left: inherit;
+    transform: none;
+  }
+}
+.c-promotion a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+.c-promotion img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5rem 0 0;
+}
+.c-promotion__text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: center;
+  font-size: 0.875rem;
+}
+.c-promotion__text p {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  text-align: left;
+  font-size: 0.75rem;
+  flex-direction: column;
+}
+.c-promotion__text p b {
+  font-size: 0.875rem;
+}
+.c-promotion__link {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 72px;
+  height: 72px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.25;
+  color: #005fa0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-promotion__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/badge_y.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotateBadge 9s linear infinite;
+  z-index: -1;
+}
+
+.c-promotion.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* 横向き・PC時は左向きアニメーション */
 @keyframes scroll-line-move-left {
   0% {
@@ -446,7 +533,7 @@ html {
   display: block;
 }
 .p-ex__title__date {
-  width: 60vw;
+  width: 70vw;
   max-width: 480px;
   display: block;
   margin-top: 1rem;

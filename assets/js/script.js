@@ -429,3 +429,17 @@ const mo = new MutationObserver((mutations) => {
   });
 });
 mo.observe(container, { childList: true });
+
+// 写真展プロモーションバナーの表示制御
+
+document.addEventListener("DOMContentLoaded", function () {
+  const promotion = document.querySelector(".c-promotion");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      promotion.classList.add("hidden");
+    } else {
+      promotion.classList.remove("hidden");
+    }
+  });
+});
