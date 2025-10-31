@@ -699,6 +699,8 @@ html {
   top: -3.5rem;
   display: flex;
   flex-direction: column;
+  width: 90%;
+  max-width: 272px;
 }
 .p-ex__event__title--single {
   left: -1rem;
