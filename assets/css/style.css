@@ -700,11 +700,13 @@ html {
   display: flex;
   flex-direction: column;
   width: 90%;
-  max-width: 272px;
+  max-width: 264px;
 }
 .p-ex__event__title--single {
   left: -1rem;
   top: -1rem;
+  width: 100%;
+  max-width: 340px;
 }
 .p-ex__event__item {
   background-color: #005fa0;

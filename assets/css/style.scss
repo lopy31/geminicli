@@ -749,10 +749,12 @@ html {
       display: flex;
       flex-direction: column;
       width: 90%;
-      max-width: 272px;
+      max-width: 264px;
       &--single {
         left: -1rem;
         top: -1rem;
+        width: 100%;
+        max-width: 340px;
       }
     }
     &__item {
